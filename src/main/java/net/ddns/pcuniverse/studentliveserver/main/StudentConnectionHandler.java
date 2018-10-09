@@ -32,12 +32,17 @@ public class StudentConnectionHandler extends ConnectionHandler implements Runna
     private ObservableList<Notification> notifications = FXCollections.observableArrayList();
     private ObservableList<ContactDetails> contactDetails = FXCollections.observableArrayList();
     private ObservableList<ImportantDate> importantDates = FXCollections.observableArrayList();
+    private ObservableList<ChatRoom> chatRooms = FXCollections.observableArrayList();
+    private ObservableList<CafeOrder> orders = FXCollections.observableArrayList();
+    private ObservableList<InfoMessages> messages = FXCollections.observableArrayList();
     private volatile ObservableList<Object> outputQueue = FXCollections.observableArrayList();
     volatile BooleanProperty updateStudent = new SimpleBooleanProperty(false);
     volatile BooleanProperty updateNotices = new SimpleBooleanProperty(false);
     volatile BooleanProperty updateNotifications = new SimpleBooleanProperty(false);
     volatile BooleanProperty updateContactDetails = new SimpleBooleanProperty(false);
     volatile BooleanProperty updateImportantDates = new SimpleBooleanProperty(false);
+    volatile BooleanProperty updateOrders = new SimpleBooleanProperty(false);
+    public volatile BooleanProperty updateChatRooms = new SimpleBooleanProperty(false);
 
     public StudentConnectionHandler(Socket socket, ObjectInputStream objectInputStream, ObjectOutputStream objectOutputStream, String studentNumber, ObservableList<ConnectionHandler> connectionsList, DatabaseHandler dh) {
         super(socket, objectInputStream, objectOutputStream, connectionsList, dh);
@@ -76,7 +81,18 @@ public class StudentConnectionHandler extends ConnectionHandler implements Runna
                 updateImportantDates.set(false);
             }
         });
-        //TODO no need to add listener to list as updateStudent() already runs when updated ???
+        updateChatRooms.addListener((obs, oldV, newV) -> {
+            if (newV) {
+                updateChatRooms();
+                updateChatRooms.set(false);
+            }
+        });
+        updateOrders.addListener((obs, oldV, newV) -> {
+            if (newV) {
+                updateOrders();
+                updateOrders.set(false);
+            }
+        });
         student.addListener(e -> {
             outputQueue.add(0, student.get());
         });
@@ -95,11 +111,22 @@ public class StudentConnectionHandler extends ConnectionHandler implements Runna
         importantDates.addListener((InvalidationListener) e -> {
             outputQueue.add(0, Arrays.asList(importantDates.toArray()));
         });
+        chatRooms.addListener((InvalidationListener) e -> {
+            outputQueue.add(0, Arrays.asList(chatRooms.toArray()));
+        });
+        orders.addListener((InvalidationListener) e -> {
+            outputQueue.add(0, Arrays.asList(orders.toArray()));
+        });
+        messages.addListener((InvalidationListener) e -> {
+            outputQueue.add(0, Arrays.asList(messages.toArray()));
+        });
         updateStudent();
         updateNotices();
         updateNotifications();
         updateContactDetails();
         updateImportantDates();
+        updateChatRooms();
+        updateOrders();
         new InputProcessor().start();
         new OutputProcessor().start();
     }
@@ -138,10 +165,36 @@ public class StudentConnectionHandler extends ConnectionHandler implements Runna
                         } else if (text.startsWith("dn:")) {
                             dh.log("Student " + studentNumber + "> Dismissed Notification");
                             dh.removeNotification(Integer.parseInt(text.substring(3)));
+                        } else if (text.startsWith("dr:")) {
+                            //TODO dh.log(with studentNumber)
+                            for (ConnectionHandler ch : connectionsList) {
+                                if (ch instanceof LecturerConnectionHandler) {
+                                    if (((LecturerConnectionHandler) ch).getLecturerNumber().equals(text.substring(3).split(":")[0])){
+                                        ((LecturerConnectionHandler) ch).addMessage(text.substring(3).split(":")[2], text.substring(3).split(":")[1]);
+                                    }
+                                }
+                            }
                         } else {
                             dh.log("Student " + studentNumber + "> Requested Unknown Command: " + input);
                             System.out.println("Server> Unknown command: " + input);
                         }
+                    } else if (input instanceof AssignmentFile){
+                        try {
+                            AssignmentFile assignmentFile = (AssignmentFile) input;
+                            File newFile = new File(Server.ASSIGNMENT_FILES.getAbsolutePath() + "/" + assignmentFile.getClassID() + "/" + assignmentFile.getAssignmentType() + "/" + studentNumber + assignmentFile.getExtension());
+                            newFile.getParentFile().mkdirs();
+                            Files.write(newFile.toPath(), assignmentFile.getFileData());
+                            dh.uploadedAssignment(assignmentFile, studentNumber);
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    } else if (input instanceof ChatRoom){
+                        dh.updateChatroom((ChatRoom) input);
+                    } else if (input instanceof ChatRoomMessage){
+                        dh.addMessageToChatRoom((ChatRoomMessage) input);
+                    } else if (input instanceof CafeOrder){
+                        dh.updateCafeOrder((CafeOrder) input);
+                        //TODO notify cafe to update orders
                     }
                 }
             }
@@ -244,7 +297,6 @@ public class StudentConnectionHandler extends ConnectionHandler implements Runna
                 outputQueue.add(new FilePart(Arrays.copyOfRange(fileBytes, size, size + Math.min(Server.BUFFER_SIZE, fileBytes.length - size)), Integer.parseInt(classID), fileName));
                 size += Math.min(Server.BUFFER_SIZE, fileBytes.length - size);
                 dh.log("Student " + studentNumber + "> Successfully Downloaded File: " + fileName + " For Class: " + classID);
-                System.out.println("Server> Successfully Downloaded File: " + fileName + " For Class: " + classID);
             }
         } catch (Exception ex) {
             dh.log("Server> getFile> " + ex);
@@ -282,6 +334,16 @@ public class StudentConnectionHandler extends ConnectionHandler implements Runna
     private void updateImportantDates() {
         importantDates.clear();
         importantDates.addAll(dh.getImportantDates());
+    }
+
+    private void updateChatRooms() {
+        chatRooms.clear();
+        chatRooms.addAll(dh.getAllChatRooms(studentNumber));
+    }
+
+    private void updateOrders() {
+        orders.clear();
+        orders.addAll(dh.getAllSLOrders(studentNumber));
     }
 
     public String getStudentNumber() {

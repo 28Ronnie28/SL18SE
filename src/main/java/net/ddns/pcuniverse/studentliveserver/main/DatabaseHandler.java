@@ -88,6 +88,15 @@ public class DatabaseHandler {
                         "DPWeight INTEGER, " +
                         "FinalWeight INTEGER, " +
                         "ResultName TEXT);");
+                stmt.execute("CREATE TABLE Assignment (" +
+                        "AssignmentID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "ClassID INTEGER, " +
+                        "StudentNumber TEXT, " +
+                        "AssignmentType TEXT, " +
+                        "AssignmentName TEXT, " +
+                        "UploadedDateAndTime TEXT, " +
+                        "ResultMax INTEGER, " +
+                        "ResultAchieved INTEGER);");
                 stmt.execute("CREATE TABLE Notice (" +
                         "NoticeID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "Heading TEXT, " +
@@ -110,14 +119,53 @@ public class DatabaseHandler {
                         "ImportantDateID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "IDate TEXT, " +
                         "Description TEXT);");
+                stmt.execute("CREATE TABLE ChatRoom (" +
+                        "ChatRoomID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "Name TEXT, " +
+                        "StartedDate TEXT);");
+                stmt.execute("CREATE TABLE UsersInChatRoom (" +
+                        "UICRID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "ChatRoomID INTEGER , " +
+                        "SLNumber TEXT);");
+                stmt.execute("CREATE TABLE ChatRoomMessages (" +
+                        "CRMessageID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "ChatRoomID INTEGER , " +
+                        "MessageDate TEXT , " +
+                        "Message TEXT);");
                 stmt.execute("CREATE TABLE Admin (" +
                         "Username TEXT, " +
                         "Password TEXT, " +
                         "AssignedPassword INTEGER, " +
                         "Email TEXT);");
+                stmt.execute("CREATE TABLE CafeUser (" +
+                        "Username TEXT, " +
+                        "Password TEXT, " +
+                        "AssignedPassword INTEGER, " +
+                        "Email TEXT);");
+                stmt.execute("CREATE TABLE CafeMenu (" +
+                        "CafeMenuID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "Category TEXT, " +
+                        "Heading TEXT, " +
+                        "Description TEXT, " +
+                        "Price INTEGER);");
+                stmt.execute("CREATE TABLE CafeOrders (" +
+                        "CafeOrderID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "SLNumber TEXT, " +
+                        "Paid INTEGER, " +
+                        "Received INTEGER);");
+                stmt.execute("CREATE TABLE CafeOrderDetails (" +
+                        "CafeOrderDetailsID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "CafeOrderID TEXT, " +
+                        "CafeMenuID INTEGER, " +
+                        "Quantity INTEGER);");
+                stmt.execute("INSERT INTO Admin (" +
+                        "Username, " +
+                        "Password, " +
+                        "AssignedPassword, " +
+                        "Email) VALUES (" +
+                        "'admin', 'admin', 0, 'admin@admin.co.za');");
                 log("Server> Created Database");
             }
-            System.out.println("Server> Connected to database");
             log("Server> Connected to database");
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -166,6 +214,19 @@ public class DatabaseHandler {
             return false;
         }
     }
+
+    Boolean authoriseCafe(String username, String password) {
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM Cafe WHERE Username = ? AND Password = ?");
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            return preparedStatement.executeQuery().next();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            log("Server> authoriseAdmin> " + username + "> " + ex);
+            return false;
+        }
+    }
     //</editor-fold>
 
     //<editor-fold desc="Getters">
@@ -196,6 +257,8 @@ public class DatabaseHandler {
                 List<Result> results = getStudentResults(studentNumber, rs.getInt("ClassID"));
                 StudentClass studentClass = getStudentClass(rs.getInt("ClassID"), studentNumber);
                 List<Attendance> attendance = getStudentAttendance(rs.getInt("ClassID"), studentNumber);
+                List<AssignmentDetails> assignments = getStudentAssignmentDetails(rs.getInt("ClassID"), studentNumber);
+                //TODO assignments seperate
                 classResultAttendances.add(new ClassResultAttendance(studentClass, results, attendance));
             }
             log("Server> Successfully Created Classes Results Attendance For Student: " + studentNumber);
@@ -367,6 +430,25 @@ public class DatabaseHandler {
             ResultSet rs = preparedStatement.executeQuery();
             //log("Server> Successfully Created ClassLecturer: " + lecturerNumber);
             return new StudentClass(rs.getInt("ClassID"), rs.getString("ModuleName"), rs.getString("ModuleNumber"), getClassLecturer(classID), getClassTimes(classID), null, getResultTemplates(classID));
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            log("Server> getClassLecturer> " + ex);
+            return null;
+        }
+    }
+
+    List<AssignmentDetails> getStudentAssignmentDetails(int classID, String studentNumber){
+        List<AssignmentDetails> assignments = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM Assignment WHERE ClassID = ? AND StudentNumber = ?");
+            preparedStatement.setInt(1, classID);
+            preparedStatement.setString(2, studentNumber);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                assignments.add(new AssignmentDetails(rs.getInt("AssignmentID"), rs.getInt("ClassID"), rs.getString("AssignmentType"), rs.getString("AssignmentName"), rs.getInt("ResultMax"), rs.getInt("ResultAchieved")));
+            }
+            //log("Server> Successfully Created ClassLecturer: " + lecturerNumber);
+            return assignments;
         } catch (SQLException ex) {
             ex.printStackTrace();
             log("Server> getClassLecturer> " + ex);
@@ -719,6 +801,26 @@ public class DatabaseHandler {
         }
     }
 
+    //TODO Assignment Results more than one
+    void uploadedAssignment(AssignmentFile assignmentFile, String studentNumber){
+        try {
+                PreparedStatement preparedStatement = con.prepareStatement("UPDATE Assignment SET UploadedDateAndTime = ? WHERE StudentNumber = ? AND ClassID = ?;");
+                preparedStatement.setString(1, assignmentFile.getUploadedDateandTime());
+                preparedStatement.setString(2, studentNumber);
+                preparedStatement.setInt(3, assignmentFile.getClassID());
+                preparedStatement.executeUpdate();
+                notifyUpdatedStudent(studentNumber);//TODO
+                log("Server> updateStudent> Updated student");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            log("Server> updateStudent> " + ex);
+        }
+    }
+
+    //registerAssignment
+
+
+
     List<Notification> getAllNotifications() {
         List<Notification> notifications = new ArrayList<>();
         try {
@@ -845,6 +947,87 @@ public class DatabaseHandler {
             e.printStackTrace();
         }
         return studentsInClassResultsResults;
+    }
+
+    List<ChatRoom> getAllChatRooms(String slNumber){
+        List<ChatRoom> chatRooms = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM ChatRoom, UsersInChatRoom WHERE UsersInChatRoom.ChatRoomID = ChatRoom.ChatRoomID AND UsersInChatRoom.SLNumber = ?;");
+            preparedStatement.setString(1, slNumber);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                List<ChatRoomMessage> messages = getAllMessagesInChatRoom(rs.getInt("ChatRoomID"));
+                chatRooms.add(new ChatRoom(rs.getInt("ChatRoomID"), rs.getString("Name"), rs.getString("StartedDate"), messages));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return chatRooms;
+
+    }
+
+    List<ChatRoomMessage> getAllMessagesInChatRoom(int chatRoomID){
+        List<ChatRoomMessage> messages = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM ChatRoomMessages WHERE ChatRoomID = ?;");
+            preparedStatement.setInt(1, chatRoomID);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                messages.add(new ChatRoomMessage(rs.getInt("ChatRoomID"), rs.getString("Message"), rs.getString("MessageDate")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return messages;
+
+    }
+
+    List<CafeOrder> getAllCafeOrders(){
+        List<CafeOrder> cafeOrders = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM CafeOrders WHERE Recieved = ?;");
+            preparedStatement.setInt(1, 0);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                List<CafeOrderDetails> items = getAllCafeOrderDetails(rs.getInt("CafeOrderID"));
+                cafeOrders.add(new CafeOrder(rs.getInt("CafeOrderID"), rs.getString("SLNumber"), rs.getInt("Paid"), rs.getInt("Received"), items));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cafeOrders;
+    }
+
+    List<CafeOrderDetails> getAllCafeOrderDetails(int cafeOrderID){
+        List<CafeOrderDetails> items = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM CafeOrderDetails WHERE CafeOrderID = ?;");
+            preparedStatement.setInt(1, cafeOrderID);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                items.add(new CafeOrderDetails(rs.getInt("CafeMenuID"), rs.getInt("Quantity")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return items;
+    }
+
+    List<CafeOrder> getAllSLOrders(String slNumber){//TODO find out all or outstanding
+        List<CafeOrder> cafeOrders = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM CafeOrders WHERE Recieved = ? AND SLNumber = ?;");
+            preparedStatement.setInt(1, 0);
+            preparedStatement.setString(2, slNumber);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                List<CafeOrderDetails> items = getAllCafeOrderDetails(rs.getInt("CafeOrderID"));
+                cafeOrders.add(new CafeOrder(rs.getInt("CafeOrderID"), rs.getString("SLNumber"), rs.getInt("Paid"), rs.getInt("Received"), items));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cafeOrders;
     }
     //</editor-fold>
 
@@ -1045,6 +1228,20 @@ public class DatabaseHandler {
             ex.printStackTrace();
         }
     }
+
+    private void initCafeUserPassword(String username, String email) {
+        try {
+            String newPassword = calculateNewPassword();
+            PreparedStatement preparedStatement = con.prepareStatement("UPDATE CafeUser SET Password = ?, AssignedPassword = 1 WHERE Username = ?");
+            preparedStatement.setString(1, newPassword);
+            preparedStatement.setString(2, username);
+            preparedStatement.executeUpdate();
+            new Thread(() -> Email.initPassword(username, email, newPassword)).start();
+            log("Server> resetAdminPassword> Successfully reset " + username + "'s password");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
     //</editor-fold>
 
     //<editor-fold desc="Adders">
@@ -1066,38 +1263,7 @@ public class DatabaseHandler {
         }
     }
 
-    private void addResult(int resultTemplateID, String studentNumber, int result) {
-        try {
-            PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO Result (ResultTemplateID, StudentNumber, Result) VALUES (?,?,?);");
-            preparedStatement.setInt(1, resultTemplateID);
-            preparedStatement.setString(2, studentNumber);
-            preparedStatement.setInt(3, result);
-            log("Admin> Successfully Added Result For Student: " + studentNumber + " For ResultTemplate: " + resultTemplateID);
-            preparedStatement.execute();
-            notifyUpdatedStudent(studentNumber);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            log("Server> addResult> " + ex);
-        }
-    }
-
-    private void addNotice(String heading, String description, String expiryDate, String tag) {
-        try {
-            PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO Notice (Heading, Description, ExpiryDate, Tag) VALUES (?,?,?,?);");
-            preparedStatement.setString(1, heading);
-            preparedStatement.setString(2, description);
-            preparedStatement.setString(3, expiryDate);
-            preparedStatement.setString(4, tag);
-            log("Admin> Successfully Added Notice: " + heading + " For: " + tag);
-            preparedStatement.execute();
-            notifyUpdatedNotices(tag);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            log("Server> addNotice> " + ex);
-        }
-    }
-
-    private void addRegisterResults(String studentNumber, int classID) {
+        private void addRegisterResults(String studentNumber, int classID) {
         try {
             PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM ResultTemplate WHERE ClassID = ?;");
             preparedStatement.setInt(1, classID);
@@ -1144,6 +1310,20 @@ public class DatabaseHandler {
             preparedStatement.execute();
             addRegisterResults(studentNumber, classID);
             notifyUpdatedStudent(studentNumber);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            log("Server> registerStudentForClass> " + ex);
+        }
+    }
+
+    void addMessageToChatRoom(ChatRoomMessage chatRoomMessage) {
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO ChatRoomMessages (ChatRoomID, MessageDate, Message) VALUES (?,?,?);");
+            preparedStatement.setInt(1, chatRoomMessage.getChatRoomID());
+            preparedStatement.setString(2, chatRoomMessage.getMessageDate());
+            preparedStatement.setString(3, chatRoomMessage.getMessage());
+            preparedStatement.execute();
+            //notifyUpdatedStudent(studentNumber);//TODO Notify
         } catch (SQLException ex) {
             ex.printStackTrace();
             log("Server> registerStudentForClass> " + ex);
@@ -1488,6 +1668,111 @@ public class DatabaseHandler {
             log("Server> updateNotice> " + ex);
         }
     }
+
+    void updateChatroom(ChatRoom chatRoom){
+        try {
+            if (isChatRoomRegistered(chatRoom.getChatRoomName())) {
+                PreparedStatement preparedStatement = con.prepareStatement("UPDATE ChatRoom SET Name = ? WHERE ChatRoomID = ?;");
+                preparedStatement.setString(1, chatRoom.getChatRoomName());
+                preparedStatement.setInt(2, chatRoom.getChatRoomID());
+                preparedStatement.executeUpdate();
+                notifyAdminUpdate();
+            } else {
+                PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO ChatRoom (Name, StartedDate) VALUES (?, ?)");
+                preparedStatement.setString(1, chatRoom.getChatRoomName());
+                preparedStatement.setString(2, chatRoom.getStartedDate());
+                preparedStatement.executeUpdate();
+                //notifyAdminUpdate();//TODO Notify
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    void updateCafeUser(CafeUser cafeUser){
+        try {
+            if (isCafeUserRegistered(cafeUser.getUsername())) {
+                PreparedStatement preparedStatement = con.prepareStatement("UPDATE CafeUser SET Email = ? WHERE Username = ?;");
+                preparedStatement.setString(1, cafeUser.getEmail());
+                preparedStatement.setString(2, cafeUser.getUsername());
+                preparedStatement.executeUpdate();
+                notifyAdminUpdate();
+            } else {
+                PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO CafeUser (Username, Email) VALUES (?, ?)");
+                preparedStatement.setString(1, cafeUser.getUsername());
+                preparedStatement.setString(2, cafeUser.getEmail());
+                preparedStatement.executeUpdate();
+                initCafeUserPassword(cafeUser.getUsername(), cafeUser.getEmail());
+                //notifyAdminUpdate();//TODO Notify
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    void updateCafeMenuItem(CafeMenuItem cafeMenuItem){
+        try {
+            if (isCafeMenuItemRegistered(cafeMenuItem.getCafeMenuItemID())) {
+                PreparedStatement preparedStatement = con.prepareStatement("UPDATE CafeMenu SET Category = ? AND Heading = ? AND Description = ? AND Price = ? WHERE CafeMenuID = ?;");
+                preparedStatement.setString(1, cafeMenuItem.getCategory());
+                preparedStatement.setString(2, cafeMenuItem.getHeading());
+                preparedStatement.setString(3, cafeMenuItem.getDescription());
+                preparedStatement.setInt(4, cafeMenuItem.getPrice());
+                preparedStatement.setInt(5, cafeMenuItem.getCafeMenuItemID());
+                preparedStatement.executeUpdate();
+                notifyAdminUpdate();
+            } else {
+                PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO CafeMenu (Category, Heading, Description, Price) VALUES (?, ?, ?, ?)");
+                preparedStatement.setString(1, cafeMenuItem.getCategory());
+                preparedStatement.setString(2, cafeMenuItem.getHeading());
+                preparedStatement.setString(3, cafeMenuItem.getDescription());
+                preparedStatement.setInt(4, cafeMenuItem.getPrice());
+                preparedStatement.executeUpdate();
+                //notifyAdminUpdate();//TODO Notify
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    void updateCafeOrder(CafeOrder cafeOrder){//TODO minus account
+        try {
+            if (isCafeOrderRegistered(cafeOrder.getCafeOrderID())) {
+                PreparedStatement preparedStatement = con.prepareStatement("UPDATE CafeOrders SET SLNumber = ? AND Paid = ? AND Recieved = ? WHERE CafeOrderID = ?;");
+                preparedStatement.setString(1, cafeOrder.getSlNumber());
+                preparedStatement.setInt(2, cafeOrder.getPaid());
+                preparedStatement.setInt(3, cafeOrder.getRecieved());
+                preparedStatement.setInt(4, cafeOrder.getCafeOrderID());
+                preparedStatement.executeUpdate();
+                notifyAdminUpdate();
+            } else {
+                PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO CafeOrders (SLNumber, Paid, Recieved) VALUES (?, ?, ?)");
+                preparedStatement.setString(1, cafeOrder.getSlNumber());
+                preparedStatement.setInt(2, cafeOrder.getPaid());
+                preparedStatement.setInt(3, cafeOrder.getRecieved());
+                preparedStatement.executeUpdate();
+                updateCafeOrderDetails(cafeOrder);
+                //notifyAdminUpdate();//TODO Notify
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    void updateCafeOrderDetails(CafeOrder cafeOrder){
+        try {
+            for (int i = 0; i < cafeOrder.getItems().size(); i++) {
+                    PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO CafeOrderDetails (CafeOrderID, CafeMenuID, Quantity) VALUES (?, ?, ?);");
+                    preparedStatement.setInt(1, cafeOrder.getCafeOrderID());
+                    preparedStatement.setInt(2, cafeOrder.getItems().get(i).getCafeMenuItemID());
+                    preparedStatement.setInt(3, cafeOrder.getItems().get(i).getQuantity());
+                    preparedStatement.executeUpdate();
+                    //notifyAdminUpdate();//TODO Notify
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
     //</editor-fold>
 
     //<editor-fold desc="Is Registered">
@@ -1593,6 +1878,67 @@ public class DatabaseHandler {
         try {
             PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM ContactDetails WHERE ContactDetailsID = ?;");
             preparedStatement.setInt(1, contactDetailsID);
+            return preparedStatement.executeQuery().next();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            log("Server> updateStudent> " + ex);
+            return false;
+        }
+    }
+
+    private Boolean isAssignmentRegistered(AssignmentFile assignmentFile){//TODO
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM Assignment WHERE ClassID = ? AND AssignmentName = ?;");
+            preparedStatement.setInt(1, assignmentFile.getClassID());
+            preparedStatement.setString(2, assignmentFile.getAssignmentName());
+            return preparedStatement.executeQuery().next();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            log("Server> updateStudent> " + ex);
+            return false;
+        }
+    }
+
+    private Boolean isChatRoomRegistered(String chatRoomName){
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM ChatRoom WHERE Name = ?;");
+            preparedStatement.setString(1, chatRoomName);
+            return preparedStatement.executeQuery().next();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            log("Server> updateStudent> " + ex);
+            return false;
+        }
+    }
+
+    private Boolean isCafeUserRegistered(String username){
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM CafeUser WHERE Username = ?;");
+            preparedStatement.setString(1, username);
+            return preparedStatement.executeQuery().next();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            log("Server> updateStudent> " + ex);
+            return false;
+        }
+    }
+
+    private Boolean isCafeMenuItemRegistered(int cafeMenuID){
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM CafeMenu WHERE CafeMenuID = ?;");
+            preparedStatement.setInt(1, cafeMenuID);
+            return preparedStatement.executeQuery().next();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            log("Server> updateStudent> " + ex);
+            return false;
+        }
+    }
+
+    private Boolean isCafeOrderRegistered(int cafeOrderID){
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM CafeOrders WHERE CafeOrderID = ?;");
+            preparedStatement.setInt(1, cafeOrderID);
             return preparedStatement.executeQuery().next();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -2014,6 +2360,21 @@ public class DatabaseHandler {
             preparedStatement.setInt(1, importantDateID);
             preparedStatement.executeUpdate();
             notifyUpdatedDate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            log("Server> removeStudentFromClass> " + ex);
+        }
+    }
+
+    void refundCafeOrder(int cafeOrderID) {
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement("DELETE FROM CafeOrders WHERE CafeOrderID = ?;");
+            preparedStatement.setInt(1, cafeOrderID);
+            preparedStatement.executeUpdate();
+            preparedStatement = con.prepareStatement("DELETE FROM CafeOrderDetails WHERE CafeOrderID = ?;");
+            preparedStatement.setInt(1, cafeOrderID);
+            preparedStatement.executeUpdate();
+            //notifyUpdatedDate();//Notify SL
         } catch (SQLException ex) {
             ex.printStackTrace();
             log("Server> removeStudentFromClass> " + ex);

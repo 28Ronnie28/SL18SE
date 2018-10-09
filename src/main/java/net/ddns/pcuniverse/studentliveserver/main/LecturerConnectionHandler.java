@@ -25,20 +25,22 @@ public class LecturerConnectionHandler extends ConnectionHandler implements Runn
     private String lecturerNumber;
     private ObjectProperty<Lecturer> lecturer = new SimpleObjectProperty<>();
     private ObservableList<Notice> notices = FXCollections.observableArrayList();
-    private ObservableList<Notification> notifications = FXCollections.observableArrayList();
     private ObservableList<ContactDetails> contactDetails = FXCollections.observableArrayList();
     private ObservableList<ImportantDate> importantDates = FXCollections.observableArrayList();
     private ObservableList<LecturerStudentAttendance> studentAttendance = FXCollections.observableArrayList();
     private ObservableList<LecturerStudentResult> studentResults = FXCollections.observableArrayList();
+    private ObservableList<ChatRoom> chatRooms = FXCollections.observableArrayList();
+    private ObservableList<CafeOrder> orders = FXCollections.observableArrayList();
+    private ObservableList<InfoMessages> messages = FXCollections.observableArrayList();
     public volatile ObservableList<Object> outputQueue = FXCollections.observableArrayList();
-    public volatile ObservableList<FilePart> downloadQueue = FXCollections.observableArrayList();
     public volatile BooleanProperty updateLecturer = new SimpleBooleanProperty(false);
     public volatile BooleanProperty updateNotices = new SimpleBooleanProperty(false);
     public volatile BooleanProperty updateContactDetails = new SimpleBooleanProperty(false);
     public volatile BooleanProperty updateImportantDates = new SimpleBooleanProperty(false);
     public volatile BooleanProperty updateStudentAttendance = new SimpleBooleanProperty(false);
     public volatile BooleanProperty updateStudentResults = new SimpleBooleanProperty(false);
-    //private FileDownloader fileDownloader = new FileDownloader()//TODO where to start
+    public volatile BooleanProperty updateChatRooms = new SimpleBooleanProperty(false);
+    public volatile BooleanProperty updateOrders = new SimpleBooleanProperty(false);
 
     public LecturerConnectionHandler(Socket socket, ObjectInputStream objectInputStream, ObjectOutputStream objectOutputStream, String lecturerNumber, ObservableList<ConnectionHandler> connectionsList, DatabaseHandler dh) {
         super(socket, objectInputStream, objectOutputStream, connectionsList, dh);
@@ -82,6 +84,18 @@ public class LecturerConnectionHandler extends ConnectionHandler implements Runn
                 updateStudentResults.set(false);
             }
         });
+        updateChatRooms.addListener((obs, oldV, newV) -> {
+            if (newV) {
+                updateChatRooms();
+                updateChatRooms.set(false);
+            }
+        });
+        updateOrders.addListener((obs, oldV, newV) -> {
+            if (newV) {
+                updateOrders();
+                updateOrders.set(false);
+            }
+        });
         lecturer.addListener(e -> {
             outputQueue.add(0, lecturer.get());
         });
@@ -100,12 +114,23 @@ public class LecturerConnectionHandler extends ConnectionHandler implements Runn
         studentResults.addListener((InvalidationListener) e -> {
             outputQueue.add(0, Arrays.asList(studentResults.toArray()));
         });
+        chatRooms.addListener((InvalidationListener) e -> {
+            outputQueue.add(0, Arrays.asList(chatRooms.toArray()));
+        });
+        orders.addListener((InvalidationListener) e -> {
+            outputQueue.add(0, Arrays.asList(orders.toArray()));
+        });
+        messages.addListener((InvalidationListener) e -> {
+            outputQueue.add(0, Arrays.asList(messages.toArray()));
+        });
         updateLecturer();
         updateNotices();
         updateContactDetails();
         updateImportantDates();
         updateStudentAttendance();
         updateStudentResults();
+        updateChatRooms();
+        updateOrders();
         new InputProcessor().start();
         new OutputProcessor().start();
     }
@@ -150,6 +175,12 @@ public class LecturerConnectionHandler extends ConnectionHandler implements Runn
                         }
                     } else if (input instanceof AttendanceRecord) {
                         dh.addAttendance((AttendanceRecord) input);
+                    } else if (input instanceof ChatRoom){
+                        dh.updateChatroom((ChatRoom) input);
+                    } else if (input instanceof ChatRoomMessage){
+                        dh.addMessageToChatRoom((ChatRoomMessage) input);
+                    } else if (input instanceof CafeOrder){
+                        dh.updateCafeOrder((CafeOrder) input);
                     }
                 }
             }
@@ -168,63 +199,6 @@ public class LecturerConnectionHandler extends ConnectionHandler implements Runn
                     Thread.sleep(20);
                 } catch (Exception ex) {
                     System.out.println("Server> OutputProcessor> " + ex);
-                }
-            }
-        }
-    }
-
-    public class FileDownloader extends Thread {
-
-        public volatile IntegerProperty size;
-        public volatile DoubleProperty progress;
-        ClassFile file;
-        byte[] bytes;
-
-        public FileDownloader(ClassFile file) {
-            this.file = file;
-            bytes = new byte[file.getFileLength()];
-            size = new SimpleIntegerProperty(0);
-            progress = new SimpleDoubleProperty(0);
-        }
-
-        @Override
-        public void run() {
-            outputQueue.add("gf:" + file.getClassID() + ":" + file.getFileName());
-            Done:
-            while (true) {
-                FilePart filePartToRemove = null;
-                BreakSearch:
-                for (int i = downloadQueue.size() - 1; i > -1; i--) {
-                    try {
-                        Object object = downloadQueue.get(i);
-                        if (object instanceof FilePart) {
-                            FilePart filePart = (FilePart) object;
-                            if (filePart.getClassID() == file.getClassID() && filePart.getFileName().equals(file.getFileName())) {
-                                filePartToRemove = filePart;
-                                break BreakSearch;
-                            }
-                        }
-                    } catch (IndexOutOfBoundsException ex) {
-                    }
-                }
-                if (filePartToRemove != null) {
-                    for (int i = 0; i < filePartToRemove.getFileBytes().length; i++) {
-                        bytes[size.get() + i] = filePartToRemove.getFileBytes()[i];
-                    }
-                    size.set(size.get() + filePartToRemove.getFileBytes().length);
-                    progress.set(1D * size.get() / bytes.length);
-                    downloadQueue.remove(filePartToRemove);
-                }
-                if (size.get() == file.getFileLength()) {
-                    System.out.println("File successfully downloaded!");
-                    File f = new File(Server.FILES_FOLDER + "/" + file.getClassID() + "/" + file.getFileName());
-                    f.getParentFile().mkdirs();
-                    try {
-                        Files.write(f.toPath(), bytes);
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                    break Done;
                 }
             }
         }
@@ -298,13 +272,6 @@ public class LecturerConnectionHandler extends ConnectionHandler implements Runn
         }
     }
 
-    private void uploadFile(String classID, String fileName) {
-        //new FileDownloader() TODO
-        updateStudents(classID);
-        updateLecturer.setValue(true);
-    }
-
-
     private Boolean updateStudents(String classID) {
         List<String> students = dh.getStudentsInClass(Integer.parseInt(classID));
         for (ConnectionHandler ch : connectionsList) {
@@ -348,7 +315,19 @@ public class LecturerConnectionHandler extends ConnectionHandler implements Runn
     }
 
     private void updateStudentResults() {
+        studentResults.clear();
         studentResults.addAll(dh.getAllStudentsInClassResults(lecturerNumber));
     }
+
+    private void updateChatRooms() {
+        chatRooms.clear();
+        chatRooms.addAll(dh.getAllChatRooms(lecturerNumber));
+    }
+
+    private void updateOrders() {
+        orders.clear();
+        orders.addAll(dh.getAllSLOrders(lecturerNumber));
+    }
+
 
 }

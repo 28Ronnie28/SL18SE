@@ -2,7 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67e45d9b-01f0-4a12-92f0-3b529cad34e0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/studentlive.store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/models/all/AssignmentDetails.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/models/all/AssignmentFile.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/models/all/CafeMenuItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/models/all/CafeOrder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/models/all/CafeOrderDetails.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/models/all/CafeUser.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/models/all/ChatRoom.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/models/all/ChatRoomMessage.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/models/all/InfoMessages.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/CafeConnectionHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/models/all/ClassResultAttendance.java" afterPath="$PROJECT_DIR$/src/main/java/models/all/ClassResultAttendance.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/AdminConnectionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/AdminConnectionHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/DatabaseHandler.java" afterPath="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/DatabaseHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/LecturerConnectionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/LecturerConnectionHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/Server.java" afterPath="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/Server.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/StudentConnectionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/StudentConnectionHandler.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -13,15 +31,335 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="DatabaseHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/DatabaseHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-13901">
+              <caret line="503" column="23" lean-forward="false" selection-start-line="503" selection-start-column="23" selection-end-line="503" selection-end-column="23" />
+              <folding>
+                <element signature="n#!!doc;n#authoriseStudent#0;n#DatabaseHandler#0" expanded="false" />
+                <element signature="n#!!doc;n#changeStudentPassword#0;n#DatabaseHandler#0" expanded="false" />
+                <element signature="n#!!doc;n#isAdminRegistered#0;n#DatabaseHandler#0" expanded="false" />
+                <element signature="n#!!doc;n#removeStudent#0;n#DatabaseHandler#0" expanded="false" />
+                <element signature="method#regSuppExam#0;class#DatabaseHandler#0" expanded="false" />
+                <element signature="method#checkStudentClassesToRemove#0;class#DatabaseHandler#0" expanded="false" />
+                <element signature="method#isDefaultStudentPassword#0;class#DatabaseHandler#0" expanded="false" />
+                <element signature="method#isDefaultAdminPassword#0;class#DatabaseHandler#0" expanded="false" />
+                <element signature="method#isDefaultLecturerPassword#0;class#DatabaseHandler#0" expanded="false" />
+                <element signature="method#hasAttendance#0;class#DatabaseHandler#0" expanded="false" />
+                <element signature="method#saveContactImage#0;class#DatabaseHandler#0" expanded="false" />
+                <element signature="method#calculateNewPassword#0;class#DatabaseHandler#0" expanded="false" />
+                <element signature="method#log#0;class#DatabaseHandler#0" expanded="false" />
+                <marker date="1515091665520" expanded="true" signature="1058:1467" ph="CREATE TABLE... Student" />
+                <marker date="1515091665520" expanded="true" signature="1502:1698" ph="CREATE TABLE... Registered" />
+                <marker date="1515091665520" expanded="true" signature="1733:2016" ph="CREATE TABLE... Attendance" />
+                <marker date="1515091665520" expanded="true" signature="2051:2384" ph="CREATE TABLE... ClassTime" />
+                <marker date="1515091665520" expanded="true" signature="2419:2650" ph="CREATE TABLE... Class" />
+                <marker date="1515091665520" expanded="true" signature="2685:3043" ph="CREATE TABLE... Lecturer" />
+                <marker date="1515091665520" expanded="true" signature="3078:3320" ph="CREATE TABLE... Result" />
+                <marker date="1515091665520" expanded="true" signature="3355:3701" ph="CREATE TABLE... ResultTemplate" />
+                <marker date="1515091665520" expanded="true" signature="3736:4187" ph="CREATE TABLE... Assignment" />
+                <marker date="1515091665520" expanded="true" signature="3736:4188" ph="CREATE TABLE... Assignment" />
+                <marker date="1515091665520" expanded="true" signature="4223:4491" ph="CREATE TABLE... Notice" />
+                <marker date="1515091665520" expanded="true" signature="4526:4760" ph="CREATE TABLE... Notification" />
+                <marker date="1515091665520" expanded="true" signature="4795:5124" ph="CREATE TABLE... ContactDetails" />
+                <marker date="1515091665520" expanded="true" signature="5159:5354" ph="CREATE TABLE... ImportantDate" />
+                <marker date="1515091665520" expanded="true" signature="5389:5573" ph="CREATE TABLE... ChatRoom" />
+                <marker date="1515091665520" expanded="true" signature="5608:5802" ph="CREATE TABLE... UsersInChatRoom" />
+                <marker date="1515091665520" expanded="true" signature="5837:6084" ph="CREATE TABLE... ChatRoomMessages" />
+                <marker date="1515091665520" expanded="true" signature="6119:6322" ph="CREATE TABLE... Admin" />
+                <marker date="1515091665520" expanded="true" signature="6357:6563" ph="CREATE TABLE... Cafe" />
+                <marker date="1515091665520" expanded="true" signature="6598:6828" ph="CREATE TABLE... CafeMenu" />
+                <marker date="1515091665520" expanded="true" signature="6598:6873" ph="CREATE TABLE... CafeMenu" />
+                <marker date="1515091665520" expanded="true" signature="6908:7142" ph="CREATE TABLE... CafeOrders" />
+                <marker date="1515091665520" expanded="true" signature="7177:7433" ph="CREATE TABLE... CafeOrders" />
+                <marker date="1515091665520" expanded="true" signature="7468:7726" ph="INSERT INTO Admin... " />
+                <marker date="1515091665520" expanded="true" signature="8222:8284" ph="SELECT * FRO... Student" />
+                <marker date="1515091665520" expanded="true" signature="8807:8867" ph="SELECT * FRO... Lecturer" />
+                <marker date="1515091665520" expanded="true" signature="9384:9439" ph="SELECT * FRO... Admin" />
+                <marker date="1515091665520" expanded="true" signature="9940:9994" ph="SELECT * FRO... Cafe" />
+                <marker date="1515091665520" expanded="true" signature="10536:10581" ph="SELECT * FRO... Student" />
+                <marker date="1515091665520" expanded="true" signature="11634:11739" ph="SELECT * FRO... Class" />
+                <marker date="1515091665520" expanded="true" signature="13040:13200" ph="SELECT * FRO... Result" />
+                <marker date="1515091665520" expanded="true" signature="14112:14206" ph="SELECT * FRO... Class" />
+                <marker date="1515091665520" expanded="true" signature="15253:15272" ph="SELECT * FRO... Class" />
+                <marker date="1515091665520" expanded="true" signature="16265:16361" ph="SELECT * FRO... Lecturer" />
+                <marker date="1515091665520" expanded="true" signature="17476:17540" ph="SELECT * FRO... Attendance" />
+                <marker date="1515091665520" expanded="true" signature="18372:18413" ph="SELECT * FRO... ClassTime" />
+                <marker date="1515091665520" expanded="true" signature="19202:19254" ph="SELECT Passw... Student" />
+                <marker date="1515091665520" expanded="true" signature="20055:20100" ph="SELECT * FRO... Student" />
+                <marker date="1515091665520" expanded="true" signature="20512:20549" ph="SELECT * FRO... Class" />
+                <marker date="1515091665520" expanded="true" signature="21358:21418" ph="SELECT * FRO... Assignement" />
+                <marker date="1515091665520" expanded="true" signature="21358:21422" ph="SELECT * FRO... Assignement" />
+                <marker date="1515091665520" expanded="true" signature="22297:22357" ph="SELECT * FRO... ContactDetails" />
+                <marker date="1515091665520" expanded="true" signature="23185:23241" ph="SELECT * FRO... Notice" />
+                <marker date="1515091665520" expanded="true" signature="24715:24755" ph="SELECT * FRO... Notification" />
+                <marker date="1515091665520" expanded="true" signature="25723:25751" ph="SELECT * FRO... ContactDetails" />
+                <marker date="1515091665520" expanded="true" signature="27185:27227" ph="SELECT * FRO... ImportantDate" />
+                <marker date="1515091665520" expanded="true" signature="28672:28715" ph="SELECT * FRO... Lecturer" />
+                <marker date="1515091665520" expanded="true" signature="29655:29918" ph="SELECT DISTI... Student" />
+                <marker date="1515091665520" expanded="true" signature="30962:31002" ph="SELECT * FRO... Class" />
+                <marker date="1515091665520" expanded="true" signature="31799:31849" ph="SELECT Passw... Lecturer" />
+                <marker date="1515091665520" expanded="true" signature="32662:32797" ph="SELECT Stude... Student" />
+                <marker date="1515091665520" expanded="true" signature="33460:33479" ph="SELECT * FRO... Admin" />
+                <marker date="1515091665520" expanded="true" signature="34172:34245" ph="SELECT (Firs... Student" />
+                <marker date="1515091665520" expanded="true" signature="34904:34975" ph="SELECT (Firs... Lecturer" />
+                <marker date="1515091665520" expanded="true" signature="35631:35670" ph="SELECT Modul... Class" />
+                <marker date="1515091665520" expanded="true" signature="36331:36372" ph="SELECT Name,... ContactDetails" />
+                <marker date="1515091665520" expanded="true" signature="37031:37051" ph="SELECT * FRO... Notice" />
+                <marker date="1515091665520" expanded="true" signature="37866:37912" ph="SELECT * FRO... ResultTemplate" />
+                <marker date="1515091665520" expanded="true" signature="38690:38759" ph="UPDATE Stude... " />
+                <marker date="1515091665520" expanded="true" signature="38690:38775" ph="UPDATE ASSIG... " />
+                <marker date="1515091665520" expanded="true" signature="39538:39564" ph="SELECT * FRO... Notification" />
+                <marker date="1515091665520" expanded="true" signature="40446:40671" ph="SELECT DISTI... Student" />
+                <marker date="1515091665520" expanded="true" signature="41970:42100" ph="SELECT * FRO... Class" />
+                <marker date="1515091665520" expanded="true" signature="43090:43154" ph="SELECT * FRO... Attendance" />
+                <marker date="1515091665520" expanded="true" signature="43976:44201" ph="SELECT DISTI... Student" />
+                <marker date="1515091665520" expanded="true" signature="45263:45393" ph="SELECT * FRO... Class" />
+                <marker date="1515091665520" expanded="true" signature="46282:46442" ph="SELECT * FRO... Result" />
+                <marker date="1515091665520" expanded="true" signature="47218:47264" ph="SELECT * FRO... Result" />
+                <marker date="1515091665520" expanded="true" signature="47218:47345" ph="SELECT * FRO... ChatRoom" />
+                <marker date="1515091665520" expanded="true" signature="48068:48119" ph="SELECT * FRO... ChatRoom" />
+                <marker date="1515091665520" expanded="true" signature="48707:48750" ph="SELECT * FRO... CafeOrders" />
+                <marker date="1515091665520" expanded="true" signature="49475:49527" ph="SELECT * FRO... CafeOrderDetails" />
+                <marker date="1515091665520" expanded="true" signature="50126:50186" ph="SELECT * FRO... CafeOrders" />
+                <marker date="1515091665520" expanded="true" signature="50981:51036" ph="UPDATE Stude... " />
+                <marker date="1515091665520" expanded="true" signature="51645:51722" ph="UPDATE Stude... " />
+                <marker date="1515091665520" expanded="true" signature="52376:52446" ph="UPDATE Admin... " />
+                <marker date="1515091665520" expanded="true" signature="53097:53172" ph="UPDATE Lectu... " />
+                <marker date="1515091665520" expanded="true" signature="53829:53882" ph="UPDATE Lectu... " />
+                <marker date="1515091665520" expanded="true" signature="54490:54549" ph="SELECT Passw... Student" />
+                <marker date="1515091665520" expanded="true" signature="55402:55459" ph="SELECT Passw... Lecturer" />
+                <marker date="1515091665520" expanded="true" signature="56376:56446" ph="UPDATE Admin... " />
+                <marker date="1515091665520" expanded="true" signature="57102:57179" ph="UPDATE Stude... " />
+                <marker date="1515091665520" expanded="true" signature="57837:57912" ph="UPDATE Lectu... " />
+                <marker date="1515091665520" expanded="true" signature="58576:58646" ph="UPDATE Admin... " />
+                <marker date="1515091665520" expanded="true" signature="59308:59385" ph="UPDATE Stude... " />
+                <marker date="1515091665520" expanded="true" signature="60049:60124" ph="UPDATE Lectu... " />
+                <marker date="1515091665520" expanded="true" signature="60785:60858" ph="UPDATE Stude... " />
+                <marker date="1515091665520" expanded="true" signature="61500:61542" ph="SELECT * FRO... Registered" />
+                <marker date="1515091665520" expanded="true" signature="61767:61842" ph="INSERT INTO Result... " />
+                <marker date="1515091665520" expanded="true" signature="62410:62456" ph="SELECT * FRO... ResultTemplate" />
+                <marker date="1515091665520" expanded="true" signature="62766:62841" ph="INSERT INTO Result... " />
+                <marker date="1515091665520" expanded="true" signature="63493:63576" ph="INSERT INTO Attendance... " />
+                <marker date="1515091665520" expanded="true" signature="64411:64471" ph="INSERT INTO Registered... " />
+                <marker date="1515091665520" expanded="true" signature="65028:65106" ph="INSERT INTO Registered... " />
+                <marker date="1515091665520" expanded="true" signature="65844:65964" ph="UPDATE Stude... " />
+                <marker date="1515091665520" expanded="true" signature="66685:66804" ph="INSERT INTO Student... " />
+                <marker date="1515091665520" expanded="true" signature="67805:67903" ph="UPDATE Lectu... " />
+                <marker date="1515091665520" expanded="true" signature="68585:68683" ph="INSERT INTO Lecturer... " />
+                <marker date="1515091665520" expanded="true" signature="69711:69794" ph="UPDATE Class... " />
+                <marker date="1515091665520" expanded="true" signature="70337:70410" ph="INSERT INTO Class... " />
+                <marker date="1515091665520" expanded="true" signature="70812:70898" ph="SELECT Class... Class" />
+                <marker date="1515091665520" expanded="true" signature="71468:71573" ph="INSERT INTO ResultTemplate... " />
+                <marker date="1515091665520" expanded="true" signature="72330:72442" ph="SELECT * FRO... ClassTime" />
+                <marker date="1515091665520" expanded="true" signature="72899:72996" ph="INSERT INTO ClassTime... " />
+                <marker date="1515091665520" expanded="true" signature="73831:73974" ph="UPDATE Class... " />
+                <marker date="1515091665520" expanded="true" signature="74862:74988" ph="UPDATE Resul... " />
+                <marker date="1515091665520" expanded="true" signature="75771:75876" ph="INSERT INTO ResultTemplate... " />
+                <marker date="1515091665520" expanded="true" signature="76781:76858" ph="UPDATE Resul... " />
+                <marker date="1515091665520" expanded="true" signature="77541:77632" ph="UPDATE Notic... " />
+                <marker date="1515091665520" expanded="true" signature="78241:78319" ph="INSERT INTO Notice... " />
+                <marker date="1515091665520" expanded="true" signature="79045:79122" ph="UPDATE Impor... " />
+                <marker date="1515091665520" expanded="true" signature="79602:79662" ph="INSERT INTO ImportantDate... " />
+                <marker date="1515091665520" expanded="true" signature="80247:80333" ph="UPDATE Notif... " />
+                <marker date="1515091665520" expanded="true" signature="80844:80913" ph="INSERT INTO Notification... " />
+                <marker date="1515091665520" expanded="true" signature="81652:81773" ph="UPDATE Conta... " />
+                <marker date="1515091665520" expanded="true" signature="82520:82620" ph="INSERT INTO ContactDetails... " />
+                <marker date="1515091665520" expanded="true" signature="83542:83587" ph="UPDATE Admin... " />
+                <marker date="1515091665520" expanded="true" signature="83918:83967" ph="INSERT INTO Admin... " />
+                <marker date="1515091665520" expanded="true" signature="84515:84574" ph="UPDATE Atten... " />
+                <marker date="1515091665520" expanded="true" signature="84884:84943" ph="SELECT Stude... Attendance" />
+                <marker date="1515091665520" expanded="true" signature="85508:85557" ph="UPDATE Admin... " />
+                <marker date="1515091665520" expanded="true" signature="85894:85948" ph="INSERT INTO Admin... " />
+                <marker date="1515091665520" expanded="true" signature="86502:86550" ph="UPDATE ChatR... " />
+                <marker date="1515091665520" expanded="true" signature="86881:86933" ph="INSERT INTO ChatRoom... " />
+                <marker date="1515091665520" expanded="true" signature="87586:87689" ph="UPDATE CafeM... " />
+                <marker date="1515091665520" expanded="true" signature="88258:88338" ph="INSERT INTO CafeUser... " />
+                <marker date="1515091665520" expanded="true" signature="89069:89155" ph="UPDATE CafeM... " />
+                <marker date="1515091665520" expanded="true" signature="89627:89693" ph="INSERT INTO CafeMenu... " />
+                <marker date="1515091665520" expanded="true" signature="90374:90455" ph="INSERT INTO CafeOrderDetails... " />
+                <marker date="1515091665520" expanded="true" signature="91141:91179" ph="SELECT * FRO... Admin" />
+                <marker date="1515091665520" expanded="true" signature="91610:91655" ph="SELECT * FRO... Student" />
+                <marker date="1515091665520" expanded="true" signature="92105:92169" ph="SELECT * FRO... Registered" />
+                <marker date="1515091665520" expanded="true" signature="92657:92700" ph="SELECT * FRO... Lecturer" />
+                <marker date="1515091665520" expanded="true" signature="93126:93163" ph="SELECT * FRO... Class" />
+                <marker date="1515091665520" expanded="true" signature="93611:93680" ph="SELECT * FRO... Result" />
+                <marker date="1515091665520" expanded="true" signature="94166:94205" ph="SELECT * FRO... Notice" />
+                <marker date="1515091665520" expanded="true" signature="94636:94687" ph="SELECT * FRO... Notification" />
+                <marker date="1515091665520" expanded="true" signature="95127:95182" ph="SELECT * FRO... ContactDetails" />
+                <marker date="1515091665520" expanded="true" signature="95635:95700" ph="SELECT * FRO... Assignment" />
+                <marker date="1515091665520" expanded="true" signature="96226:96263" ph="SELECT * FRO... ChatRoom" />
+                <marker date="1515091665520" expanded="true" signature="96693:96734" ph="SELECT * FRO... ChatRoom" />
+                <marker date="1515091665520" expanded="true" signature="97163:97206" ph="SELECT * FRO... CafeMenu" />
+                <marker date="1515091665520" expanded="true" signature="97632:97678" ph="SELECT * FRO... CafeMenu" />
+                <marker date="1515091665520" expanded="true" signature="107496:107539" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="107704:107742" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="107907:107939" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="108104:108150" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="108315:108357" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="108522:108568" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="108999:109035" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="109528:109590" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="109758:109819" ph="SELECT Resul... ResultTemplate" />
+                <marker date="1515091665520" expanded="true" signature="110043:110110" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="110376:110438" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="111152:111193" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="111366:111404" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="111577:111609" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="111840:111890" ph="UPDATE Class... " />
+                <marker date="1515091665520" expanded="true" signature="112335:112370" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="112526:112566" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="112722:112762" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="112918:112957" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="113113:113174" ph="SELECT Resul... ResultTemplate" />
+                <marker date="1515091665520" expanded="true" signature="113398:113443" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="113645:113689" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="114107:114158" ph="SELECT Class... ClassTime" />
+                <marker date="1515091665520" expanded="true" signature="114403:114446" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="114860:114919" ph="SELECT Stude... Attendance" />
+                <marker date="1515091665520" expanded="true" signature="115183:115228" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="115660:115721" ph="SELECT Class... ResultTemplate" />
+                <marker date="1515091665520" expanded="true" signature="115971:116024" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="116195:116240" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="116667:116708" ph="SELECT Tag F... Notice" />
+                <marker date="1515091665520" expanded="true" signature="116948:116985" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="117408:117461" ph="SELECT Tag F... Notification" />
+                <marker date="1515091665520" expanded="true" signature="117707:117756" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="118194:118247" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="118677:118728" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="119146:119190" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="119350:119400" ph="DELETE FROM " />
+                <marker date="1515091665520" expanded="true" signature="119862:119961" ph="SELECT Resul... ResultTemplate" />
+                <marker date="1515091665520" expanded="true" signature="120219:120297" ph="INSERT INTO Result... " />
+                <marker date="1515091665520" expanded="true" signature="121240:121310" ph="SELECT * FRO... Student" />
+                <marker date="1515091665520" expanded="true" signature="121747:121810" ph="SELECT * FRO... Admin" />
+                <marker date="1515091665520" expanded="true" signature="122249:122317" ph="SELECT * FRO... Lecturer" />
+                <marker date="1515091665520" expanded="true" signature="122743:122799" ph="SELECT * FRO... Attendance" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LecturerConnectionHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/LecturerConnectionHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2159">
+              <caret line="145" column="36" lean-forward="false" selection-start-line="145" selection-start-column="36" selection-end-line="145" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AssignmentDetails.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/models/all/AssignmentDetails.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2907">
+              <caret line="183" column="41" lean-forward="false" selection-start-line="183" selection-start-column="41" selection-end-line="183" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="77" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/models/all/Student.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+              <folding>
+                <element signature="e#898#899#0" expanded="true" />
+                <element signature="e#934#935#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClassResultAttendance.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/models/all/ClassResultAttendance.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConnectionHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/ConnectionHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="41" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentConnectionHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/StudentConnectionHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5066">
+              <caret line="325" column="37" lean-forward="false" selection-start-line="325" selection-start-column="37" selection-end-line="325" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>campu</find>
       <find>swoo</find>
-      <find>campus</find>
       <find>swo</find>
+      <find>campus</find>
+      <find>auth</find>
+      <find>notify</find>
+      <find>updated</find>
+      <find>updateSt</find>
+      <find>isS</find>
+      <find>assign</find>
+      <find>getF</find>
+      <find>topPa</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -37,8 +375,27 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/models/lecturer/LecturerStudentAttendanceClass.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/Email.java" />
+        <option value="C:/Program Files/Java/jdk1.8.0_141/jre/lib/jsse.jar!/sun/security/ssl/SSLContextImpl.class" />
+        <option value="$PROJECT_DIR$/src/main/java/models/all/ClassesAndInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/all/ChatRoom.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/all/AssignmentFile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/all/ChatRoomMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/all/CafeUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/all/CafeMenuItem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/all/CafeOrderDetails.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/all/CafeOrder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/CafeConnectionHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/all/Messages.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/all/InfoMessages.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/LecturerConnectionHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/AdminConnectionHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/all/ClassResultAttendance.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/all/Student.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/DatabaseHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/all/AssignmentDetails.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/Server.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/StudentConnectionHandler.java" />
       </list>
     </option>
   </component>
@@ -68,9 +425,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -102,13 +459,55 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StudentLiveServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StudentLiveServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StudentLiveServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StudentLiveServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="all" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StudentLiveServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StudentLiveServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="lecturer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StudentLiveServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StudentLiveServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StudentLiveServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StudentLiveServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -117,10 +516,14 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../MediaApp" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Sqlite (Xerial)" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Code\1Projects\StudentLiveCode\StudentLive2018\StudentLiveServer\src\main\resources" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Code\1Projects\StudentLive\StudentLive2018\StudentLiveServer\src\main\java\net\ddns\pcuniverse\studentliveserver\main" />
       <recent name="D:\Code\1Projects\StudentLive\StudentLive2018\StudentLiveServer\src\main\java\models\lecturer" />
@@ -260,40 +663,79 @@
       <workItem from="1510055093050" duration="96000" />
       <workItem from="1510055263656" duration="1850000" />
       <workItem from="1510063501220" duration="1034000" />
+      <workItem from="1510064878006" duration="3900000" />
+      <workItem from="1510069354136" duration="2152000" />
+      <workItem from="1510083387168" duration="4213000" />
+      <workItem from="1510129220477" duration="15164000" />
+      <workItem from="1510147614911" duration="1389000" />
+      <workItem from="1510224573725" duration="3182000" />
+      <workItem from="1510241402479" duration="1817000" />
+      <workItem from="1510307439581" duration="1324000" />
+      <workItem from="1510550874608" duration="1457000" />
+      <workItem from="1510575376898" duration="44000" />
+      <workItem from="1510912875000" duration="218000" />
+      <workItem from="1510933190148" duration="628000" />
+      <workItem from="1511434251725" duration="4564000" />
+      <workItem from="1511510446359" duration="3454000" />
+      <workItem from="1512139392921" duration="778000" />
+      <workItem from="1515090727176" duration="21000" />
+      <workItem from="1515091497736" duration="259000" />
+      <workItem from="1517928334348" duration="3918000" />
+      <workItem from="1518707885429" duration="93000" />
+      <workItem from="1518708375683" duration="3451000" />
+      <workItem from="1518974366450" duration="89000" />
+      <workItem from="1519031320950" duration="687000" />
+      <workItem from="1519033720550" duration="2768000" />
+      <workItem from="1519059811103" duration="4357000" />
+      <workItem from="1519215058776" duration="602000" />
+      <workItem from="1524488346802" duration="2150000" />
+      <workItem from="1524559727587" duration="1897000" />
+      <workItem from="1524584266725" duration="61000" />
+      <workItem from="1524653668872" duration="4134000" />
+      <workItem from="1527156561541" duration="629000" />
+      <workItem from="1527718158821" duration="631000" />
+      <workItem from="1527779701547" duration="628000" />
+      <workItem from="1527805460517" duration="1208000" />
+      <workItem from="1527807585382" duration="793000" />
+      <workItem from="1530215017842" duration="1144000" />
+      <workItem from="1531584074557" duration="649000" />
+      <workItem from="1531769332377" duration="637000" />
+      <workItem from="1531946088419" duration="508000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2980000" />
+    <option name="totallyTimeSpent" value="78578000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1924307" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19829424" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -305,238 +747,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/ConnectionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="33" column="11" lean-forward="false" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/AdminConnectionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="200" column="55" lean-forward="false" selection-start-line="200" selection-start-column="54" selection-end-line="200" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/Email.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/DatabaseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="1698" column="119" lean-forward="false" selection-start-line="1698" selection-start-column="114" selection-end-line="1698" selection-end-column="119" />
-          <folding>
-            <marker date="1510055534986" expanded="true" signature="1058:1467" ph="CREATE TABLE... Student" />
-            <marker date="1510055534986" expanded="true" signature="1502:1698" ph="CREATE TABLE... Registered" />
-            <marker date="1510055534986" expanded="true" signature="1733:2016" ph="CREATE TABLE... Attendance" />
-            <marker date="1510055534986" expanded="true" signature="2051:2384" ph="CREATE TABLE... ClassTime" />
-            <marker date="1510055534986" expanded="true" signature="2419:2650" ph="CREATE TABLE... Class" />
-            <marker date="1510055534986" expanded="true" signature="2685:3043" ph="CREATE TABLE... Lecturer" />
-            <marker date="1510055534986" expanded="true" signature="3078:3320" ph="CREATE TABLE... Result" />
-            <marker date="1510055534986" expanded="true" signature="3355:3701" ph="CREATE TABLE... ResultTemplate" />
-            <marker date="1510055534986" expanded="true" signature="3736:4004" ph="CREATE TABLE... Notice" />
-            <marker date="1510055534986" expanded="true" signature="4039:4273" ph="CREATE TABLE... Notification" />
-            <marker date="1510055534986" expanded="true" signature="4308:4637" ph="CREATE TABLE... ContactDetails" />
-            <marker date="1510055534986" expanded="true" signature="4672:4867" ph="CREATE TABLE... ImportantDate" />
-            <marker date="1510055534986" expanded="true" signature="4902:5105" ph="CREATE TABLE... Admin" />
-            <marker date="1510055534986" expanded="true" signature="5666:5728" ph="SELECT * FRO... Student" />
-            <marker date="1510055534986" expanded="true" signature="6251:6311" ph="SELECT * FRO... Lecturer" />
-            <marker date="1510055534986" expanded="true" signature="6828:6883" ph="SELECT * FRO... Admin" />
-            <marker date="1510055534986" expanded="true" signature="7425:7470" ph="SELECT * FRO... Student" />
-            <marker date="1510055534986" expanded="true" signature="8523:8628" ph="SELECT * FRO... Class" />
-            <marker date="1510055534986" expanded="true" signature="9765:9925" ph="SELECT * FRO... Result" />
-            <marker date="1510055534986" expanded="true" signature="10837:10931" ph="SELECT * FRO... Class" />
-            <marker date="1510055534986" expanded="true" signature="11978:11997" ph="SELECT * FRO... Class" />
-            <marker date="1510055534986" expanded="true" signature="12990:13086" ph="SELECT * FRO... Lecturer" />
-            <marker date="1510055534986" expanded="true" signature="14201:14265" ph="SELECT * FRO... Attendance" />
-            <marker date="1510055534986" expanded="true" signature="15097:15138" ph="SELECT * FRO... ClassTime" />
-            <marker date="1510055534986" expanded="true" signature="15927:15979" ph="SELECT Passw... Student" />
-            <marker date="1510055534986" expanded="true" signature="16780:16825" ph="SELECT * FRO... Student" />
-            <marker date="1510055534986" expanded="true" signature="17237:17274" ph="SELECT * FRO... Class" />
-            <marker date="1510055534986" expanded="true" signature="17994:18054" ph="SELECT * FRO... ContactDetails" />
-            <marker date="1510055534986" expanded="true" signature="18882:18938" ph="SELECT * FRO... Notice" />
-            <marker date="1510055534986" expanded="true" signature="20412:20452" ph="SELECT * FRO... Notification" />
-            <marker date="1510055534986" expanded="true" signature="21420:21448" ph="SELECT * FRO... ContactDetails" />
-            <marker date="1510055534986" expanded="true" signature="22882:22924" ph="SELECT * FRO... ImportantDate" />
-            <marker date="1510055534986" expanded="true" signature="24369:24412" ph="SELECT * FRO... Lecturer" />
-            <marker date="1510055534986" expanded="true" signature="25352:25615" ph="SELECT DISTI... Student" />
-            <marker date="1510055534986" expanded="true" signature="26659:26699" ph="SELECT * FRO... Class" />
-            <marker date="1510055534986" expanded="true" signature="27496:27546" ph="SELECT Passw... Lecturer" />
-            <marker date="1510055534986" expanded="true" signature="28359:28494" ph="SELECT Stude... Student" />
-            <marker date="1510055534986" expanded="true" signature="29157:29176" ph="SELECT * FRO... Admin" />
-            <marker date="1510055534986" expanded="true" signature="29869:29942" ph="SELECT (Firs... Student" />
-            <marker date="1510055534986" expanded="true" signature="30601:30672" ph="SELECT (Firs... Lecturer" />
-            <marker date="1510055534986" expanded="true" signature="31328:31367" ph="SELECT Modul... Class" />
-            <marker date="1510055534986" expanded="true" signature="32028:32069" ph="SELECT Name,... ContactDetails" />
-            <marker date="1510055534986" expanded="true" signature="32728:32748" ph="SELECT * FRO... Notice" />
-            <marker date="1510055534986" expanded="true" signature="33563:33609" ph="SELECT * FRO... ResultTemplate" />
-            <marker date="1510055534986" expanded="true" signature="34366:34392" ph="SELECT * FRO... Notification" />
-            <marker date="1510055534986" expanded="true" signature="35274:35499" ph="SELECT DISTI... Student" />
-            <marker date="1510055534986" expanded="true" signature="36798:36928" ph="SELECT * FRO... Class" />
-            <marker date="1510055534986" expanded="true" signature="37918:37982" ph="SELECT * FRO... Attendance" />
-            <marker date="1510055534986" expanded="true" signature="38804:39029" ph="SELECT DISTI... Student" />
-            <marker date="1510055534986" expanded="true" signature="40091:40221" ph="SELECT * FRO... Class" />
-            <marker date="1510055534986" expanded="true" signature="41110:41270" ph="SELECT * FRO... Result" />
-            <marker date="1510055534986" expanded="true" signature="42081:42136" ph="UPDATE Stude... " />
-            <marker date="1510055534986" expanded="true" signature="42745:42822" ph="UPDATE Stude... " />
-            <marker date="1510055534986" expanded="true" signature="43476:43546" ph="UPDATE Admin... " />
-            <marker date="1510055534986" expanded="true" signature="44197:44272" ph="UPDATE Lectu... " />
-            <marker date="1510055534986" expanded="true" signature="44929:44982" ph="UPDATE Lectu... " />
-            <marker date="1510055534986" expanded="true" signature="45590:45649" ph="SELECT Passw... Student" />
-            <marker date="1510055534986" expanded="true" signature="46502:46559" ph="SELECT Passw... Lecturer" />
-            <marker date="1510055534986" expanded="true" signature="47476:47546" ph="UPDATE Admin... " />
-            <marker date="1510055534986" expanded="true" signature="48202:48279" ph="UPDATE Stude... " />
-            <marker date="1510055534986" expanded="true" signature="48937:49012" ph="UPDATE Lectu... " />
-            <marker date="1510055534986" expanded="true" signature="49676:49746" ph="UPDATE Admin... " />
-            <marker date="1510055534986" expanded="true" signature="50408:50485" ph="UPDATE Stude... " />
-            <marker date="1510055534986" expanded="true" signature="51149:51224" ph="UPDATE Lectu... " />
-            <marker date="1510055534986" expanded="true" signature="51884:51926" ph="SELECT * FRO... Registered" />
-            <marker date="1510055534986" expanded="true" signature="52151:52226" ph="INSERT INTO Result... " />
-            <marker date="1510055534986" expanded="true" signature="52802:52877" ph="INSERT INTO Result... " />
-            <marker date="1510055534986" expanded="true" signature="53581:53656" ph="INSERT INTO Notice... " />
-            <marker date="1510055534986" expanded="true" signature="54329:54375" ph="SELECT * FRO... ResultTemplate" />
-            <marker date="1510055534986" expanded="true" signature="54685:54760" ph="INSERT INTO Result... " />
-            <marker date="1510055534986" expanded="true" signature="55412:55495" ph="INSERT INTO Attendance... " />
-            <marker date="1510055534986" expanded="true" signature="56330:56390" ph="INSERT INTO Registered... " />
-            <marker date="1510055534986" expanded="true" signature="57052:57172" ph="UPDATE Stude... " />
-            <marker date="1510055534986" expanded="true" signature="57893:58012" ph="INSERT INTO Student... " />
-            <marker date="1510055534986" expanded="true" signature="59013:59111" ph="UPDATE Lectu... " />
-            <marker date="1510055534986" expanded="true" signature="59793:59891" ph="INSERT INTO Lecturer... " />
-            <marker date="1510055534986" expanded="true" signature="60919:61002" ph="UPDATE Class... " />
-            <marker date="1510055534986" expanded="true" signature="61545:61618" ph="INSERT INTO Class... " />
-            <marker date="1510055534986" expanded="true" signature="62020:62106" ph="SELECT Class... Class" />
-            <marker date="1510055534986" expanded="true" signature="62676:62781" ph="INSERT INTO ResultTemplate... " />
-            <marker date="1510055534986" expanded="true" signature="63538:63650" ph="SELECT * FRO... ClassTime" />
-            <marker date="1510055534986" expanded="true" signature="64107:64204" ph="INSERT INTO ClassTime... " />
-            <marker date="1510055534986" expanded="true" signature="65039:65182" ph="UPDATE Class... " />
-            <marker date="1510055534986" expanded="true" signature="66070:66196" ph="UPDATE Resul... " />
-            <marker date="1510055534986" expanded="true" signature="66979:67084" ph="INSERT INTO ResultTemplate... " />
-            <marker date="1510055534986" expanded="true" signature="67989:68066" ph="UPDATE Resul... " />
-            <marker date="1510055534986" expanded="true" signature="68749:68840" ph="UPDATE Notic... " />
-            <marker date="1510055534986" expanded="true" signature="69449:69527" ph="INSERT INTO Notice... " />
-            <marker date="1510055534986" expanded="true" signature="70253:70330" ph="UPDATE Impor... " />
-            <marker date="1510055534986" expanded="true" signature="70810:70870" ph="INSERT INTO ImportantDate... " />
-            <marker date="1510055534986" expanded="true" signature="71455:71541" ph="UPDATE Notif... " />
-            <marker date="1510055534986" expanded="true" signature="72052:72121" ph="INSERT INTO Notification... " />
-            <marker date="1510055534986" expanded="true" signature="72860:72981" ph="UPDATE Conta... " />
-            <marker date="1510055534986" expanded="true" signature="73728:73828" ph="INSERT INTO ContactDetails... " />
-            <marker date="1510055534986" expanded="true" signature="74750:74795" ph="UPDATE Admin... " />
-            <marker date="1510055534986" expanded="true" signature="75126:75175" ph="INSERT INTO Admin... " />
-            <marker date="1510055534986" expanded="true" signature="75723:75782" ph="UPDATE Atten... " />
-            <marker date="1510055534986" expanded="true" signature="76092:76151" ph="SELECT Stude... Attendance" />
-            <marker date="1510055534986" expanded="true" signature="76719:76757" ph="SELECT * FRO... Admin" />
-            <marker date="1510055534986" expanded="true" signature="77188:77233" ph="SELECT * FRO... Student" />
-            <marker date="1510055534986" expanded="true" signature="77683:77747" ph="SELECT * FRO... Registered" />
-            <marker date="1510055534986" expanded="true" signature="78235:78278" ph="SELECT * FRO... Lecturer" />
-            <marker date="1510055534986" expanded="true" signature="78704:78741" ph="SELECT * FRO... Class" />
-            <marker date="1510055534986" expanded="true" signature="79189:79258" ph="SELECT * FRO... Result" />
-            <marker date="1510055534986" expanded="true" signature="79744:79783" ph="SELECT * FRO... Notice" />
-            <marker date="1510055534986" expanded="true" signature="80214:80265" ph="SELECT * FRO... Notification" />
-            <marker date="1510055534986" expanded="true" signature="80705:80760" ph="SELECT * FRO... ContactDetails" />
-            <marker date="1510055534986" expanded="true" signature="90583:90626" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="90791:90829" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="90994:91026" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="91191:91237" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="91402:91444" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="91609:91655" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="92086:92122" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="92615:92677" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="92845:92906" ph="SELECT Resul... ResultTemplate" />
-            <marker date="1510055534986" expanded="true" signature="93130:93197" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="93463:93525" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="94239:94280" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="94453:94491" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="94664:94696" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="94927:94977" ph="UPDATE Class... " />
-            <marker date="1510055534986" expanded="true" signature="95422:95457" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="95613:95653" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="95809:95849" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="96005:96044" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="96200:96261" ph="SELECT Resul... ResultTemplate" />
-            <marker date="1510055534986" expanded="true" signature="96485:96530" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="96732:96776" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="97194:97245" ph="SELECT Class... ClassTime" />
-            <marker date="1510055534986" expanded="true" signature="97490:97533" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="97947:98006" ph="SELECT Stude... Attendance" />
-            <marker date="1510055534986" expanded="true" signature="98270:98315" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="98747:98808" ph="SELECT Class... ResultTemplate" />
-            <marker date="1510055534986" expanded="true" signature="99058:99111" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="99282:99327" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="99754:99795" ph="SELECT Tag F... Notice" />
-            <marker date="1510055534986" expanded="true" signature="100035:100072" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="100495:100548" ph="SELECT Tag F... Notification" />
-            <marker date="1510055534986" expanded="true" signature="100794:100843" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="101281:101334" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="101764:101815" ph="DELETE FROM " />
-            <marker date="1510055534986" expanded="true" signature="102268:102367" ph="SELECT Resul... ResultTemplate" />
-            <marker date="1510055534986" expanded="true" signature="102625:102703" ph="INSERT INTO Result... " />
-            <marker date="1510055534986" expanded="true" signature="103646:103716" ph="SELECT * FRO... Student" />
-            <marker date="1510055534986" expanded="true" signature="104153:104216" ph="SELECT * FRO... Admin" />
-            <marker date="1510055534986" expanded="true" signature="104655:104723" ph="SELECT * FRO... Lecturer" />
-            <marker date="1510055534986" expanded="true" signature="105149:105205" ph="SELECT * FRO... Attendance" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/StudentConnectionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="138" column="84" lean-forward="false" selection-start-line="138" selection-start-column="83" selection-end-line="138" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/LecturerConnectionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="147" column="27" lean-forward="false" selection-start-line="147" selection-start-column="26" selection-end-line="147" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/OnlineDownload.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1666">
-          <caret line="110" column="78" lean-forward="false" selection-start-line="110" selection-start-column="72" selection-end-line="110" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/lecturer/AttendanceRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="40" lean-forward="false" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/models/lecturer/LecturerStudentAttendance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -562,13 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/lecturer/UploadFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -618,13 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/all/ClassResultAttendance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -698,13 +900,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/all/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/models/all/StudentClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -719,11 +914,417 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/jre/lib/jsse.jar!/sun/security/ssl/SSLContextImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9027">
+          <caret line="680" column="0" lean-forward="false" selection-start-line="680" selection-start-column="0" selection-end-line="680" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/lecturer/UploadFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e81494a8-72c7-4fcf-b508-cf1ecaf18520/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6f84afcf-2437-4cd1-bfec-57ce21dbc17b/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/all/AssignmentFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="39" lean-forward="true" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/all/ChatRoomMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c11225de-3cde-4364-8101-3a86a345007b/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/all/CafeUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5448775a-2f36-4326-a0ee-393cd068e447/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/all/CafeOrderDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/all/CafeMenuItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/all/ChatRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/083999ef-dcf0-4b02-b140-ff324b2667ed/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/247546e8-0403-4788-9516-5d60a6fcbf87/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/all/CafeOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/all/InfoMessages.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/83433f47-4af4-4356-905d-ea0070311b9a/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/AdminConnectionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="106" column="31" lean-forward="false" selection-start-line="106" selection-start-column="31" selection-end-line="106" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/CafeConnectionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="838">
+          <caret line="75" column="9" lean-forward="false" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/all/ClassResultAttendance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/all/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <folding>
+            <element signature="e#898#899#0" expanded="true" />
+            <element signature="e#934#935#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/ConnectionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="22" />
+        <state relative-caret-position="170">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="77" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/all/AssignmentDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/LecturerConnectionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2159">
+          <caret line="145" column="36" lean-forward="false" selection-start-line="145" selection-start-column="36" selection-end-line="145" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2907">
+          <caret line="183" column="41" lean-forward="false" selection-start-line="183" selection-start-column="41" selection-end-line="183" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/StudentConnectionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5066">
+          <caret line="325" column="37" lean-forward="false" selection-start-line="325" selection-start-column="37" selection-end-line="325" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/ddns/pcuniverse/studentliveserver/main/DatabaseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13901">
+          <caret line="503" column="23" lean-forward="false" selection-start-line="503" selection-start-column="23" selection-end-line="503" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!doc;n#authoriseStudent#0;n#DatabaseHandler#0" expanded="false" />
+            <element signature="n#!!doc;n#changeStudentPassword#0;n#DatabaseHandler#0" expanded="false" />
+            <element signature="n#!!doc;n#isAdminRegistered#0;n#DatabaseHandler#0" expanded="false" />
+            <element signature="n#!!doc;n#removeStudent#0;n#DatabaseHandler#0" expanded="false" />
+            <element signature="method#regSuppExam#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#checkStudentClassesToRemove#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#isDefaultStudentPassword#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#isDefaultAdminPassword#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#isDefaultLecturerPassword#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#hasAttendance#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#saveContactImage#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#calculateNewPassword#0;class#DatabaseHandler#0" expanded="false" />
+            <element signature="method#log#0;class#DatabaseHandler#0" expanded="false" />
+            <marker date="1515091665520" expanded="true" signature="1058:1467" ph="CREATE TABLE... Student" />
+            <marker date="1515091665520" expanded="true" signature="1502:1698" ph="CREATE TABLE... Registered" />
+            <marker date="1515091665520" expanded="true" signature="1733:2016" ph="CREATE TABLE... Attendance" />
+            <marker date="1515091665520" expanded="true" signature="2051:2384" ph="CREATE TABLE... ClassTime" />
+            <marker date="1515091665520" expanded="true" signature="2419:2650" ph="CREATE TABLE... Class" />
+            <marker date="1515091665520" expanded="true" signature="2685:3043" ph="CREATE TABLE... Lecturer" />
+            <marker date="1515091665520" expanded="true" signature="3078:3320" ph="CREATE TABLE... Result" />
+            <marker date="1515091665520" expanded="true" signature="3355:3701" ph="CREATE TABLE... ResultTemplate" />
+            <marker date="1515091665520" expanded="true" signature="3736:4187" ph="CREATE TABLE... Assignment" />
+            <marker date="1515091665520" expanded="true" signature="3736:4188" ph="CREATE TABLE... Assignment" />
+            <marker date="1515091665520" expanded="true" signature="4223:4491" ph="CREATE TABLE... Notice" />
+            <marker date="1515091665520" expanded="true" signature="4526:4760" ph="CREATE TABLE... Notification" />
+            <marker date="1515091665520" expanded="true" signature="4795:5124" ph="CREATE TABLE... ContactDetails" />
+            <marker date="1515091665520" expanded="true" signature="5159:5354" ph="CREATE TABLE... ImportantDate" />
+            <marker date="1515091665520" expanded="true" signature="5389:5573" ph="CREATE TABLE... ChatRoom" />
+            <marker date="1515091665520" expanded="true" signature="5608:5802" ph="CREATE TABLE... UsersInChatRoom" />
+            <marker date="1515091665520" expanded="true" signature="5837:6084" ph="CREATE TABLE... ChatRoomMessages" />
+            <marker date="1515091665520" expanded="true" signature="6119:6322" ph="CREATE TABLE... Admin" />
+            <marker date="1515091665520" expanded="true" signature="6357:6563" ph="CREATE TABLE... Cafe" />
+            <marker date="1515091665520" expanded="true" signature="6598:6828" ph="CREATE TABLE... CafeMenu" />
+            <marker date="1515091665520" expanded="true" signature="6598:6873" ph="CREATE TABLE... CafeMenu" />
+            <marker date="1515091665520" expanded="true" signature="6908:7142" ph="CREATE TABLE... CafeOrders" />
+            <marker date="1515091665520" expanded="true" signature="7177:7433" ph="CREATE TABLE... CafeOrders" />
+            <marker date="1515091665520" expanded="true" signature="7468:7726" ph="INSERT INTO Admin... " />
+            <marker date="1515091665520" expanded="true" signature="8222:8284" ph="SELECT * FRO... Student" />
+            <marker date="1515091665520" expanded="true" signature="8807:8867" ph="SELECT * FRO... Lecturer" />
+            <marker date="1515091665520" expanded="true" signature="9384:9439" ph="SELECT * FRO... Admin" />
+            <marker date="1515091665520" expanded="true" signature="9940:9994" ph="SELECT * FRO... Cafe" />
+            <marker date="1515091665520" expanded="true" signature="10536:10581" ph="SELECT * FRO... Student" />
+            <marker date="1515091665520" expanded="true" signature="11634:11739" ph="SELECT * FRO... Class" />
+            <marker date="1515091665520" expanded="true" signature="13040:13200" ph="SELECT * FRO... Result" />
+            <marker date="1515091665520" expanded="true" signature="14112:14206" ph="SELECT * FRO... Class" />
+            <marker date="1515091665520" expanded="true" signature="15253:15272" ph="SELECT * FRO... Class" />
+            <marker date="1515091665520" expanded="true" signature="16265:16361" ph="SELECT * FRO... Lecturer" />
+            <marker date="1515091665520" expanded="true" signature="17476:17540" ph="SELECT * FRO... Attendance" />
+            <marker date="1515091665520" expanded="true" signature="18372:18413" ph="SELECT * FRO... ClassTime" />
+            <marker date="1515091665520" expanded="true" signature="19202:19254" ph="SELECT Passw... Student" />
+            <marker date="1515091665520" expanded="true" signature="20055:20100" ph="SELECT * FRO... Student" />
+            <marker date="1515091665520" expanded="true" signature="20512:20549" ph="SELECT * FRO... Class" />
+            <marker date="1515091665520" expanded="true" signature="21358:21418" ph="SELECT * FRO... Assignement" />
+            <marker date="1515091665520" expanded="true" signature="21358:21422" ph="SELECT * FRO... Assignement" />
+            <marker date="1515091665520" expanded="true" signature="22297:22357" ph="SELECT * FRO... ContactDetails" />
+            <marker date="1515091665520" expanded="true" signature="23185:23241" ph="SELECT * FRO... Notice" />
+            <marker date="1515091665520" expanded="true" signature="24715:24755" ph="SELECT * FRO... Notification" />
+            <marker date="1515091665520" expanded="true" signature="25723:25751" ph="SELECT * FRO... ContactDetails" />
+            <marker date="1515091665520" expanded="true" signature="27185:27227" ph="SELECT * FRO... ImportantDate" />
+            <marker date="1515091665520" expanded="true" signature="28672:28715" ph="SELECT * FRO... Lecturer" />
+            <marker date="1515091665520" expanded="true" signature="29655:29918" ph="SELECT DISTI... Student" />
+            <marker date="1515091665520" expanded="true" signature="30962:31002" ph="SELECT * FRO... Class" />
+            <marker date="1515091665520" expanded="true" signature="31799:31849" ph="SELECT Passw... Lecturer" />
+            <marker date="1515091665520" expanded="true" signature="32662:32797" ph="SELECT Stude... Student" />
+            <marker date="1515091665520" expanded="true" signature="33460:33479" ph="SELECT * FRO... Admin" />
+            <marker date="1515091665520" expanded="true" signature="34172:34245" ph="SELECT (Firs... Student" />
+            <marker date="1515091665520" expanded="true" signature="34904:34975" ph="SELECT (Firs... Lecturer" />
+            <marker date="1515091665520" expanded="true" signature="35631:35670" ph="SELECT Modul... Class" />
+            <marker date="1515091665520" expanded="true" signature="36331:36372" ph="SELECT Name,... ContactDetails" />
+            <marker date="1515091665520" expanded="true" signature="37031:37051" ph="SELECT * FRO... Notice" />
+            <marker date="1515091665520" expanded="true" signature="37866:37912" ph="SELECT * FRO... ResultTemplate" />
+            <marker date="1515091665520" expanded="true" signature="38690:38759" ph="UPDATE Stude... " />
+            <marker date="1515091665520" expanded="true" signature="38690:38775" ph="UPDATE ASSIG... " />
+            <marker date="1515091665520" expanded="true" signature="39538:39564" ph="SELECT * FRO... Notification" />
+            <marker date="1515091665520" expanded="true" signature="40446:40671" ph="SELECT DISTI... Student" />
+            <marker date="1515091665520" expanded="true" signature="41970:42100" ph="SELECT * FRO... Class" />
+            <marker date="1515091665520" expanded="true" signature="43090:43154" ph="SELECT * FRO... Attendance" />
+            <marker date="1515091665520" expanded="true" signature="43976:44201" ph="SELECT DISTI... Student" />
+            <marker date="1515091665520" expanded="true" signature="45263:45393" ph="SELECT * FRO... Class" />
+            <marker date="1515091665520" expanded="true" signature="46282:46442" ph="SELECT * FRO... Result" />
+            <marker date="1515091665520" expanded="true" signature="47218:47264" ph="SELECT * FRO... Result" />
+            <marker date="1515091665520" expanded="true" signature="47218:47345" ph="SELECT * FRO... ChatRoom" />
+            <marker date="1515091665520" expanded="true" signature="48068:48119" ph="SELECT * FRO... ChatRoom" />
+            <marker date="1515091665520" expanded="true" signature="48707:48750" ph="SELECT * FRO... CafeOrders" />
+            <marker date="1515091665520" expanded="true" signature="49475:49527" ph="SELECT * FRO... CafeOrderDetails" />
+            <marker date="1515091665520" expanded="true" signature="50126:50186" ph="SELECT * FRO... CafeOrders" />
+            <marker date="1515091665520" expanded="true" signature="50981:51036" ph="UPDATE Stude... " />
+            <marker date="1515091665520" expanded="true" signature="51645:51722" ph="UPDATE Stude... " />
+            <marker date="1515091665520" expanded="true" signature="52376:52446" ph="UPDATE Admin... " />
+            <marker date="1515091665520" expanded="true" signature="53097:53172" ph="UPDATE Lectu... " />
+            <marker date="1515091665520" expanded="true" signature="53829:53882" ph="UPDATE Lectu... " />
+            <marker date="1515091665520" expanded="true" signature="54490:54549" ph="SELECT Passw... Student" />
+            <marker date="1515091665520" expanded="true" signature="55402:55459" ph="SELECT Passw... Lecturer" />
+            <marker date="1515091665520" expanded="true" signature="56376:56446" ph="UPDATE Admin... " />
+            <marker date="1515091665520" expanded="true" signature="57102:57179" ph="UPDATE Stude... " />
+            <marker date="1515091665520" expanded="true" signature="57837:57912" ph="UPDATE Lectu... " />
+            <marker date="1515091665520" expanded="true" signature="58576:58646" ph="UPDATE Admin... " />
+            <marker date="1515091665520" expanded="true" signature="59308:59385" ph="UPDATE Stude... " />
+            <marker date="1515091665520" expanded="true" signature="60049:60124" ph="UPDATE Lectu... " />
+            <marker date="1515091665520" expanded="true" signature="60785:60858" ph="UPDATE Stude... " />
+            <marker date="1515091665520" expanded="true" signature="61500:61542" ph="SELECT * FRO... Registered" />
+            <marker date="1515091665520" expanded="true" signature="61767:61842" ph="INSERT INTO Result... " />
+            <marker date="1515091665520" expanded="true" signature="62410:62456" ph="SELECT * FRO... ResultTemplate" />
+            <marker date="1515091665520" expanded="true" signature="62766:62841" ph="INSERT INTO Result... " />
+            <marker date="1515091665520" expanded="true" signature="63493:63576" ph="INSERT INTO Attendance... " />
+            <marker date="1515091665520" expanded="true" signature="64411:64471" ph="INSERT INTO Registered... " />
+            <marker date="1515091665520" expanded="true" signature="65028:65106" ph="INSERT INTO Registered... " />
+            <marker date="1515091665520" expanded="true" signature="65844:65964" ph="UPDATE Stude... " />
+            <marker date="1515091665520" expanded="true" signature="66685:66804" ph="INSERT INTO Student... " />
+            <marker date="1515091665520" expanded="true" signature="67805:67903" ph="UPDATE Lectu... " />
+            <marker date="1515091665520" expanded="true" signature="68585:68683" ph="INSERT INTO Lecturer... " />
+            <marker date="1515091665520" expanded="true" signature="69711:69794" ph="UPDATE Class... " />
+            <marker date="1515091665520" expanded="true" signature="70337:70410" ph="INSERT INTO Class... " />
+            <marker date="1515091665520" expanded="true" signature="70812:70898" ph="SELECT Class... Class" />
+            <marker date="1515091665520" expanded="true" signature="71468:71573" ph="INSERT INTO ResultTemplate... " />
+            <marker date="1515091665520" expanded="true" signature="72330:72442" ph="SELECT * FRO... ClassTime" />
+            <marker date="1515091665520" expanded="true" signature="72899:72996" ph="INSERT INTO ClassTime... " />
+            <marker date="1515091665520" expanded="true" signature="73831:73974" ph="UPDATE Class... " />
+            <marker date="1515091665520" expanded="true" signature="74862:74988" ph="UPDATE Resul... " />
+            <marker date="1515091665520" expanded="true" signature="75771:75876" ph="INSERT INTO ResultTemplate... " />
+            <marker date="1515091665520" expanded="true" signature="76781:76858" ph="UPDATE Resul... " />
+            <marker date="1515091665520" expanded="true" signature="77541:77632" ph="UPDATE Notic... " />
+            <marker date="1515091665520" expanded="true" signature="78241:78319" ph="INSERT INTO Notice... " />
+            <marker date="1515091665520" expanded="true" signature="79045:79122" ph="UPDATE Impor... " />
+            <marker date="1515091665520" expanded="true" signature="79602:79662" ph="INSERT INTO ImportantDate... " />
+            <marker date="1515091665520" expanded="true" signature="80247:80333" ph="UPDATE Notif... " />
+            <marker date="1515091665520" expanded="true" signature="80844:80913" ph="INSERT INTO Notification... " />
+            <marker date="1515091665520" expanded="true" signature="81652:81773" ph="UPDATE Conta... " />
+            <marker date="1515091665520" expanded="true" signature="82520:82620" ph="INSERT INTO ContactDetails... " />
+            <marker date="1515091665520" expanded="true" signature="83542:83587" ph="UPDATE Admin... " />
+            <marker date="1515091665520" expanded="true" signature="83918:83967" ph="INSERT INTO Admin... " />
+            <marker date="1515091665520" expanded="true" signature="84515:84574" ph="UPDATE Atten... " />
+            <marker date="1515091665520" expanded="true" signature="84884:84943" ph="SELECT Stude... Attendance" />
+            <marker date="1515091665520" expanded="true" signature="85508:85557" ph="UPDATE Admin... " />
+            <marker date="1515091665520" expanded="true" signature="85894:85948" ph="INSERT INTO Admin... " />
+            <marker date="1515091665520" expanded="true" signature="86502:86550" ph="UPDATE ChatR... " />
+            <marker date="1515091665520" expanded="true" signature="86881:86933" ph="INSERT INTO ChatRoom... " />
+            <marker date="1515091665520" expanded="true" signature="87586:87689" ph="UPDATE CafeM... " />
+            <marker date="1515091665520" expanded="true" signature="88258:88338" ph="INSERT INTO CafeUser... " />
+            <marker date="1515091665520" expanded="true" signature="89069:89155" ph="UPDATE CafeM... " />
+            <marker date="1515091665520" expanded="true" signature="89627:89693" ph="INSERT INTO CafeMenu... " />
+            <marker date="1515091665520" expanded="true" signature="90374:90455" ph="INSERT INTO CafeOrderDetails... " />
+            <marker date="1515091665520" expanded="true" signature="91141:91179" ph="SELECT * FRO... Admin" />
+            <marker date="1515091665520" expanded="true" signature="91610:91655" ph="SELECT * FRO... Student" />
+            <marker date="1515091665520" expanded="true" signature="92105:92169" ph="SELECT * FRO... Registered" />
+            <marker date="1515091665520" expanded="true" signature="92657:92700" ph="SELECT * FRO... Lecturer" />
+            <marker date="1515091665520" expanded="true" signature="93126:93163" ph="SELECT * FRO... Class" />
+            <marker date="1515091665520" expanded="true" signature="93611:93680" ph="SELECT * FRO... Result" />
+            <marker date="1515091665520" expanded="true" signature="94166:94205" ph="SELECT * FRO... Notice" />
+            <marker date="1515091665520" expanded="true" signature="94636:94687" ph="SELECT * FRO... Notification" />
+            <marker date="1515091665520" expanded="true" signature="95127:95182" ph="SELECT * FRO... ContactDetails" />
+            <marker date="1515091665520" expanded="true" signature="95635:95700" ph="SELECT * FRO... Assignment" />
+            <marker date="1515091665520" expanded="true" signature="96226:96263" ph="SELECT * FRO... ChatRoom" />
+            <marker date="1515091665520" expanded="true" signature="96693:96734" ph="SELECT * FRO... ChatRoom" />
+            <marker date="1515091665520" expanded="true" signature="97163:97206" ph="SELECT * FRO... CafeMenu" />
+            <marker date="1515091665520" expanded="true" signature="97632:97678" ph="SELECT * FRO... CafeMenu" />
+            <marker date="1515091665520" expanded="true" signature="107496:107539" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="107704:107742" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="107907:107939" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="108104:108150" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="108315:108357" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="108522:108568" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="108999:109035" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="109528:109590" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="109758:109819" ph="SELECT Resul... ResultTemplate" />
+            <marker date="1515091665520" expanded="true" signature="110043:110110" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="110376:110438" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="111152:111193" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="111366:111404" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="111577:111609" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="111840:111890" ph="UPDATE Class... " />
+            <marker date="1515091665520" expanded="true" signature="112335:112370" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="112526:112566" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="112722:112762" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="112918:112957" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="113113:113174" ph="SELECT Resul... ResultTemplate" />
+            <marker date="1515091665520" expanded="true" signature="113398:113443" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="113645:113689" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="114107:114158" ph="SELECT Class... ClassTime" />
+            <marker date="1515091665520" expanded="true" signature="114403:114446" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="114860:114919" ph="SELECT Stude... Attendance" />
+            <marker date="1515091665520" expanded="true" signature="115183:115228" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="115660:115721" ph="SELECT Class... ResultTemplate" />
+            <marker date="1515091665520" expanded="true" signature="115971:116024" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="116195:116240" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="116667:116708" ph="SELECT Tag F... Notice" />
+            <marker date="1515091665520" expanded="true" signature="116948:116985" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="117408:117461" ph="SELECT Tag F... Notification" />
+            <marker date="1515091665520" expanded="true" signature="117707:117756" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="118194:118247" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="118677:118728" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="119146:119190" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="119350:119400" ph="DELETE FROM " />
+            <marker date="1515091665520" expanded="true" signature="119862:119961" ph="SELECT Resul... ResultTemplate" />
+            <marker date="1515091665520" expanded="true" signature="120219:120297" ph="INSERT INTO Result... " />
+            <marker date="1515091665520" expanded="true" signature="121240:121310" ph="SELECT * FRO... Student" />
+            <marker date="1515091665520" expanded="true" signature="121747:121810" ph="SELECT * FRO... Admin" />
+            <marker date="1515091665520" expanded="true" signature="122249:122317" ph="SELECT * FRO... Lecturer" />
+            <marker date="1515091665520" expanded="true" signature="122743:122799" ph="SELECT * FRO... Attendance" />
+          </folding>
         </state>
       </provider>
     </entry>

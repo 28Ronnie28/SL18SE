@@ -1,5 +1,6 @@
 package net.ddns.pcuniverse.studentliveserver.main;
 
+import javafx.beans.InvalidationListener;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
@@ -32,6 +33,7 @@ public class AdminConnectionHandler extends ConnectionHandler implements Runnabl
     private ObservableList<Notice> notices = FXCollections.observableArrayList();
     private ObservableList<Notification> notifications = FXCollections.observableArrayList();
     private ObservableList<ImportantDate> importantDates = FXCollections.observableArrayList();
+    private ObservableList<ConnectionHandler> connectionsList = FXCollections.observableArrayList();
     public volatile BooleanProperty updateAdmins = new SimpleBooleanProperty(false);
     public volatile BooleanProperty updateStudents = new SimpleBooleanProperty(false);
     public volatile BooleanProperty updateLecturers = new SimpleBooleanProperty(false);
@@ -45,6 +47,7 @@ public class AdminConnectionHandler extends ConnectionHandler implements Runnabl
     public AdminConnectionHandler(Socket socket, ObjectInputStream objectInputStream, ObjectOutputStream objectOutputStream, String username, ObservableList<ConnectionHandler> connectionsList, DatabaseHandler dh) {
         super(socket, objectInputStream, objectOutputStream, connectionsList, dh);
         this.username = username;
+        this.connectionsList = connectionsList;
     }
 
     public void run() {
@@ -95,6 +98,9 @@ public class AdminConnectionHandler extends ConnectionHandler implements Runnabl
                 updateImportantDates();
                 updateImportantDates.set(false);
             }
+        });
+        connectionsList.addListener((InvalidationListener) e -> {
+            outputQueue.add(0, Arrays.asList(connectionsList.toArray()));
         });
         updateAdmins();
         updateClasses();
@@ -213,6 +219,10 @@ public class AdminConnectionHandler extends ConnectionHandler implements Runnabl
                         if (!list.isEmpty() && list.get(0) instanceof ResultTemplate) {
                             dh.updateResultTemplate(list);
                         }
+                    } else if (input instanceof CafeUser) {
+                        dh.updateCafeUser((CafeUser) input);
+                    } else if (input instanceof ConnectionHandler) {
+                        removeConnection((ConnectionHandler) input);
                     }
                 }
             }
@@ -306,6 +316,14 @@ public class AdminConnectionHandler extends ConnectionHandler implements Runnabl
     private void updateImportantDates() {
         importantDates.setAll(dh.getImportantDates());
         outputQueue.add(Arrays.asList(importantDates.toArray()));
+    }
+
+    private void removeConnection(ConnectionHandler connection) {
+        for (ConnectionHandler ch : connectionsList) {
+            if (ch == connection) {
+                ch.terminateConnection();
+            }
+        }
     }
 
 }

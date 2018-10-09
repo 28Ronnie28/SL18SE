@@ -18,6 +18,7 @@ public class Server {
     static final File FILES_FOLDER = new File(APPLICATION_FOLDER.getAbsolutePath() + "/Files");
     static final File LECTURER_IMAGES = new File(APPLICATION_FOLDER.getAbsolutePath() + "/Lecturer");
     static final File CONTACT_IMAGES = new File(APPLICATION_FOLDER.getAbsolutePath() + "/Contact");
+    static final File ASSIGNMENT_FILES = new File(APPLICATION_FOLDER.getAbsolutePath() + "/AssignementFiles");
     static final File DATABASE_FILE = new File(APPLICATION_FOLDER.getAbsolutePath() + "/StudentLiveDB.db");
     static final File LOG_FILE = new File(APPLICATION_FOLDER.getAbsolutePath() + "/StudentLiveLogFile.txt");
     static final int BUFFER_SIZE = 4194304;
@@ -32,6 +33,10 @@ public class Server {
         if (!FILES_FOLDER.exists()) {
             FILES_FOLDER.mkdirs();
             dh.log("Server> Local Files Folder Created");
+        }
+        if (!ASSIGNMENT_FILES.exists()) {
+            ASSIGNMENT_FILES.mkdirs();
+            dh.log("Server> Local Assignment Files Folder Created");
         }
         if (!LECTURER_IMAGES.exists()) {
             LECTURER_IMAGES.mkdirs();
@@ -49,8 +54,8 @@ public class Server {
         public void run() {
             try {
                 dh.log("Server> Trying to set up client on port " + PORT);
-                System.setProperty("javax.net.ssl.keyStore", APPLICATION_FOLDER.getAbsolutePath() + "/studentlive.store");
-                System.setProperty("javax.net.ssl.keyStorePassword", "studentlive");
+                System.setProperty("javax.net.ssl.keyStore", APPLICATION_FOLDER.getAbsolutePath() + "/campuslive.store");//TODO
+                System.setProperty("javax.net.ssl.keyStorePassword", "campuslivepassword1");
                 dh.log("Server> Set up client on port " + PORT);
                 ServerSocket ss = SSLServerSocketFactory.getDefault().createServerSocket(PORT);
                 while (true) {
@@ -158,6 +163,22 @@ public class Server {
                                     objectOutputStream.writeObject("aa:n");
                                     objectOutputStream.flush();
                                 }
+                            } else if (input.startsWith("ca:")) {
+                                dh.log("Server> Authorising Cafe : " + input.substring(3).split(":")[0]);
+                                if (authoriseCafe(input.substring(3).split(":")[0], input.substring(3).split(":")[1])) {
+                                    dh.log("Server> Authorised Cafe : " + input.substring(3).split(":")[0]);
+                                    objectOutputStream.writeObject("ca:y");
+                                    objectOutputStream.flush();
+                                    CafeConnectionHandler cafeConnectionHandler = new CafeConnectionHandler(s, objectInputStream, objectOutputStream, input.substring(3).split(":")[0], connectionsList, dh);
+                                    Thread t = new Thread(cafeConnectionHandler);
+                                    t.start();
+                                    connectionsList.add(cafeConnectionHandler);
+                                    break StopClass;
+                                } else {
+                                    dh.log("Server> Authorising Cafe : " + input.substring(3).split(":")[0] + " Failed");
+                                    objectOutputStream.writeObject("ca:n");
+                                    objectOutputStream.flush();
+                                }
                             } else if (input.startsWith("fsp:")) {
                                 dh.log("Student > Requested Forgot Password");
                                 dh.emailStudentPassword(input.substring(4));
@@ -193,6 +214,10 @@ public class Server {
 
     private Boolean authoriseAdmin(String username, String password) {
         return dh.authoriseAdmin(username, password);
+    }
+
+    private Boolean authoriseCafe(String username, String password) {
+        return dh.authoriseCafe(username, password);
     }
 
     public static void main(String[] args) {
